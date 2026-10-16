@@ -11,7 +11,7 @@
   --ink:#111827; --muted:#5b6475; --line:#dde2ec; --ok:#12a36b; --soft:#fff3f4;
   --r:14px; --sans:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; --serif:Georgia,"Times New Roman",serif;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
 .strip{background:#eef1f8;color:var(--brand);text-align:center;font-size:.8rem;font-weight:700;letter-spacing:.12em;padding:9px;text-transform:uppercase}
 header{background:#fff;padding:14px 16px;border-bottom:1px solid var(--line)}
@@ -54,7 +54,9 @@ h3{font-size:1.2rem;margin:0 0 10px}
 .step b{display:block}.step span{color:var(--muted)}
 .plan{border-top:5px solid var(--brand)}
 .price{font-size:2rem;font-weight:800;margin:6px 0}
-.dark{background:var(--navy);color:#e5e9f2;border-radius:var(--r);padding:24px}
+.dark{background:var(--navy);color:#e5e9f2;border-radius:var(--r);padding:24px;border:2px solid transparent;transition:border-color .3s}
+.dark.highlight{border-color:var(--brand);animation:pulse 1.2s ease 2}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(215,26,47,.35)}50%{box-shadow:0 0 0 12px rgba(215,26,47,0)}}
 .dark h2{color:#fff}.dark .lead{color:#b9c1d1}
 .field{margin-bottom:12px}
 input[type=text],input[type=email],input[type=tel],select{width:100%;padding:15px;border:1px solid #b9c1d1;border-radius:10px;font:inherit;background:#fff}
@@ -71,8 +73,6 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 .vthumb[disabled]{cursor:default}.vthumb[disabled]::after{background:#6b7385}
 .vid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 .vtxt{padding:16px}.vtxt b{display:block;font-size:1.1rem}.vtxt span{color:var(--muted)}
-
-/* ===== Reviews with avatars ===== */
 .rev{padding:18px}
 .rev .who{display:flex;gap:12px;align-items:center;margin-bottom:10px}
 .rev .av{width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#eef1f8;border:2px solid #fff;box-shadow:0 2px 6px rgba(17,24,39,.12)}
@@ -80,13 +80,12 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 .rev small{color:var(--muted);display:block;font-size:.85rem}
 .rev .st{color:#0f9d58;letter-spacing:2px;font-size:1.05rem;margin-bottom:6px}
 .rev p{margin:0;color:#374151}
-
 .fgrp{border:1px solid #2a3350;border-radius:var(--r);padding:16px 18px;margin-bottom:12px}
 .fgrp h4{margin:0 0 8px;color:#8b95ab;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
 .fgrp a{display:flex;justify-content:space-between;color:#fff;text-decoration:none;font-weight:600;padding:10px 0}
 .fgrp a::after{content:"→";color:#8b95ab}
 
-/* ===== Occupations (radio) ===== */
+/* Occupations as radios */
 .occ-fieldset{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 14px;background:#fff}
 .occ-fieldset legend{font:700 .78rem var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:20px;color:#fff}
 .occ-fieldset.leg1 legend{background:#0f7b5f}
@@ -100,12 +99,12 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 .occ-radio small{color:var(--muted);font-size:.82rem}
 .occ-radio input:checked ~ .meta b{color:var(--brand)}
 .occ-radio:has(input:checked){background:#fff3f4}
-
-.occ-empty{color:var(--muted);padding:20px;text-align:center;border:1px dashed var(--line);border-radius:12px}
+.occ-hint{background:#fff3f4;border:1px solid #f5c6c2;color:var(--brand);padding:12px 14px;border-radius:10px;font-size:.9rem;font-weight:600;margin-top:8px;display:none;align-items:center;gap:8px}
+.occ-hint.show{display:flex}
 
 @media(min-width:700px){.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.two .card{margin:0}}
 
-/* ===== STK Payment Modal ===== */
+/* STK modal (unchanged) */
 .stk-modal{position:fixed;inset:0;background:rgba(17,24,39,.65);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
 .stk-modal.open{display:flex}
 .stk-box{background:#fff;border-radius:16px;padding:26px 22px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:stkIn .25s ease}
@@ -155,7 +154,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     <div class="kicker">Canada skilled migration assessment</div>
     <h1>Check your pathway to Canadian permanent residence</h1>
     <p class="lead">Take a guided assessment covering Federal Skilled Worker, Express Entry and CRS competitiveness, then get practical next steps for your profile.</p>
-    <a class="btn" data-assess href="#">Start eligibility assessment</a>
+    <a class="btn" href="#occupations">Start eligibility assessment</a>
     <a class="btn ghost" href="#process">See how it works</a>
     <div class="stats">
       <div class="stat">5 min<small>assessment</small></div>
@@ -183,9 +182,9 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
   </section>
 
   <section id="occupations">
-    <div class="kicker">Occupations</div>
+    <div class="kicker">Step 1 · Occupations</div>
     <h2>Select your closest occupation</h2>
-    <p class="lead">Pick the option that best matches your work experience. Your selection is sent along with your guide request so we can tailor the next steps.</p>
+    <p class="lead">Pick the option that best matches your work experience. Once you select one, we'll take you to the form.</p>
 
     <form id="occForm">
       <fieldset class="occ-fieldset leg1">
@@ -202,7 +201,9 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
       </fieldset>
     </form>
 
-    <a class="btn" data-assess href="#">Start eligibility assessment</a>
+    <div class="occ-hint" id="occHint">
+      <span>✓</span><span id="occHintText">Occupation selected — scrolling to the form…</span>
+    </div>
   </section>
 
   <section id="process">
@@ -214,7 +215,6 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
       <div class="step"><i>3</i><div><b>Find ways to improve your score</b><span>Check where language, education, work history or partner factors could help.</span></div></div>
       <div class="step"><i>4</i><div><b>Get your next-steps guide</b><span>Know which documents and forms to prepare before you apply.</span></div></div>
     </div>
-    <a class="btn" data-assess href="#">Start eligibility assessment</a>
   </section>
 
   <section>
@@ -246,7 +246,6 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     <h2>Learn the key terms before your next step</h2>
     <p class="lead">Short explainer videos make the skilled migration process easier to follow. Watch them, then take the assessment.</p>
     <div id="vlist"></div>
-    <a class="btn" data-assess href="#">Check your eligibility</a>
   </section>
 
   <section id="reviews">
@@ -254,14 +253,16 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     <h2>What our users say</h2>
     <p class="lead">Real feedback from people who checked their Canadian pathway with us.</p>
     <div id="rlist"></div>
-    <a class="btn" data-assess href="#">Start eligibility assessment</a>
   </section>
 
   <section id="guide">
-    <div class="dark">
-      <div class="kicker">Free guide</div>
-      <h2>How to migrate to Canada in 6 steps</h2>
-      <p class="lead">Get a plain-English next-steps guide before you start your assessment.</p>
+    <div class="dark" id="guideBox">
+      <div class="kicker">Step 2 · Your details</div>
+      <h2>Get the migration guide</h2>
+      <p class="lead">Enter your details below. A small fee unlocks the full 6-step guide, sent straight to your email.</p>
+      <div id="chosenOcc" class="occ-hint" style="background:#0f4c4a;border-color:#0f4c4a;color:#fff;margin-bottom:14px;display:none;">
+        <span>✓</span><span id="chosenOccText"></span>
+      </div>
       <form id="gform" novalidate>
         <div class="field"><input type="text" id="gname" placeholder="Your name" autocomplete="name" aria-label="Your name"></div>
         <div class="field"><input type="email" id="gemail" placeholder="Email address" autocomplete="email" aria-label="Email address"></div>
@@ -278,8 +279,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
   <div class="in">
     <div class="wm" id="brandB"></div>
     <p id="disc"></p>
-    <a class="btn" data-assess href="#">Start eligibility assessment</a>
-    <div class="fgrp"><h4>Start here</h4><a href="#top">Home</a><a data-assess href="#">Immigrate to Canada</a><a data-assess href="#">Eligibility Assessment</a></div>
+    <div class="fgrp"><h4>Start here</h4><a href="#top">Home</a><a href="#occupations">Occupations</a><a href="#guide">Eligibility Assessment</a></div>
     <div class="fgrp"><h4>Tools</h4><a href="#occupations">Occupations</a><a href="#" data-link="points">Points Calculator</a><a href="#" data-link="news">News</a></div>
     <div class="fgrp"><h4>Support</h4><a href="#" data-link="subscription">Manage Subscription</a><a href="#" data-link="faq">FAQ</a><a href="#guide">Contact Us</a></div>
     <div class="fgrp"><h4>Company</h4><a href="#" data-link="about">About Us</a><a href="#" data-link="terms">Terms of Service</a><a href="#" data-link="privacy">Privacy Policy</a></div>
@@ -287,7 +287,6 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
   </div>
 </footer>
 
-<!-- ============ STK PAYMENT MODAL ============ -->
 <div class="stk-modal" id="stkModal" role="dialog" aria-modal="true" aria-labelledby="stkTitle">
   <div class="stk-box" id="stkBox"></div>
 </div>
@@ -296,7 +295,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 /* ===== CONFIG ===== */
 const CONFIG = {
   brand: ["MaplePath", "Canada"],
-  assessmentUrl: "canada-assessment.html",
+  assessmentUrl: "#occupations",
   endpoint: "/api/guide",
   guideFee: 250,
   company: "© 2026 MaplePath Canada Ltd. 150 King Street West, Toronto, ON M5H 1J9, Canada.",
@@ -356,16 +355,15 @@ document.querySelectorAll("[data-assess]").forEach(a=>a.href=CONFIG.assessmentUr
 document.querySelectorAll("[data-p]").forEach(el=>{const[i,k]=el.dataset.p.split(".");el.textContent=CONFIG.plans[i][k]});
 document.querySelectorAll("[data-href]").forEach(el=>{const[i,k]=el.dataset.href.split(".");el.href=CONFIG.plans[i][k]});
 document.querySelectorAll("[data-l]").forEach(ul=>ul.innerHTML=CONFIG.plans[ul.dataset.l].items.map(t=>"<li>"+t+"</li>").join(""));
-
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 document.querySelectorAll("[data-link]").forEach(a=>a.href=CONFIG.links[a.dataset.link]||"#");
 
-/* ===== Occupations as radio buttons, grouped by TEER ===== */
+/* ===== Occupations as radios ===== */
 function renderOccupations(){
   [1,2,3].forEach(teer=>{
     const container = $("occTeer"+teer);
     const list = CONFIG.occupations.filter(o=>o.teer===teer);
-    container.innerHTML = list.map((o,i)=>`
+    container.innerHTML = list.map(o=>`
       <label class="occ-radio">
         <input type="radio" name="occupation" value="${esc(o.noc)}|${esc(o.title)}|${o.teer}">
         <span class="meta">
@@ -385,6 +383,36 @@ function getSelectedOccupation(){
   return {noc,title,teer:Number(teer)};
 }
 
+/* ===== When a radio is chosen: show hint, scroll to form, highlight it ===== */
+document.querySelectorAll('input[name="occupation"]').forEach(r=>{
+  r.addEventListener('change', () => {
+    const occ = getSelectedOccupation();
+    if(!occ) return;
+
+    // 1. Show the "selected" hint
+    $("occHintText").textContent = `Selected: ${occ.title} (NOC ${occ.noc}) — scrolling to the form…`;
+    $("occHint").classList.add("show");
+
+    // 2. Update the confirmation badge inside the form
+    $("chosenOccText").textContent = `Selected occupation: ${occ.title} (NOC ${occ.noc})`;
+    $("chosenOcc").style.display = "flex";
+
+    // 3. Scroll to the form
+    setTimeout(() => {
+      const target = $("guide");
+      const y = target.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }, 300);
+
+    // 4. Flash the form box
+    setTimeout(() => {
+      $("guideBox").classList.add("highlight");
+      setTimeout(() => $("guideBox").classList.remove("highlight"), 2600);
+      $("gname").focus({ preventScroll: true });
+    }, 900);
+  });
+});
+
 /* ===== Videos ===== */
 $("vlist").innerHTML=CONFIG.videos.map((v,i)=>
   '<div class="vid"><button class="vthumb" data-v="'+i+'" aria-label="Play: '+esc(v.title)+'"'+(v.url?"":" disabled")+'></button>'+
@@ -396,7 +424,7 @@ $("vlist").addEventListener("click",e=>{
   b.replaceWith(f);
 });
 
-/* ===== Reviews with avatar images ===== */
+/* ===== Reviews ===== */
 if(CONFIG.reviews.length){
   $("rlist").innerHTML=CONFIG.reviews.map(r=>`
     <div class="card rev">
@@ -414,9 +442,7 @@ if(CONFIG.reviews.length){
 $("burger").onclick=()=>{const o=$("menu").classList.toggle("open");$("burger").setAttribute("aria-expanded",o)};
 document.querySelectorAll("#menu a").forEach(a=>a.addEventListener("click",()=>$("menu").classList.remove("open")));
 
-/* ═══════════════════════════════════════════════════════════
-   GUIDE FORM → confirmation → STK push → poll status
-   ═══════════════════════════════════════════════════════════ */
+/* ===== STK flow ===== */
 const stkModal = $("stkModal");
 const stkBox   = $("stkBox");
 let abortController = null;
@@ -553,6 +579,8 @@ async function startStk(name, phone, fee, occupation){
       showSuccess(name, $("gemail").value.trim());
       $("gform").reset();
       document.querySelectorAll('input[name="occupation"]').forEach(r=>r.checked=false);
+      $("occHint").classList.remove("show");
+      $("chosenOcc").style.display = "none";
     } else if (result === 'cancelled') {
       /* user closed modal */
     } else if (result === 'failed') {
@@ -576,16 +604,15 @@ $("gform").addEventListener("submit", async e => {
   const ph = $("gphone").value.trim();
   const show=(t,c)=>{m.textContent=t;m.className="msg "+c;m.style.display="block"};
 
+  if(!getSelectedOccupation()) return show("Please select your occupation above first.","bad");
   if(n.length<2) return show("Enter your name.","bad");
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) return show("Enter a valid email address.","bad");
   const phone = normalizePhone(ph);
   if(!/^254[17]\d{8}$/.test(phone)) return show("Enter a valid M-Pesa number (e.g. 0712 345 678).","bad");
-  const occupation = getSelectedOccupation();
-  if(!occupation) return show("Please select your occupation above first.","bad");
   if($("gweb").value) return show("Thanks! Check your inbox.","good");
 
   m.style.display = 'none';
-  showConfirm(n, phone, CONFIG.guideFee, occupation);
+  showConfirm(n, phone, CONFIG.guideFee, getSelectedOccupation());
 });
 </script>
 </body>
