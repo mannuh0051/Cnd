@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canada Skilled Migration | Check Your Pathway</title>
+<style>
+/* ===== THEME: same variables as canada-assessment.html. Edit here only ===== */
+:root{
+  --brand:#d71a2f; --brand-dark:#b01224; --navy:#111827; --bg:#f5f7fb; --card:#fff;
+  --ink:#111827; --muted:#5b6475; --line:#dde2ec; --ok:#12a36b; --soft:#fff3f4;
+  --r:14px; --sans:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; --serif:Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+.strip{background:#eef1f8;color:var(--brand);text-align:center;font-size:.8rem;font-weight:700;letter-spacing:.12em;padding:9px;text-transform:uppercase}
+header{background:#fff;padding:14px 16px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:12px}
+.mark{width:44px;height:44px;border-radius:10px;background:var(--brand);color:#fff;display:grid;place-items:center;font:700 1.3rem var(--serif)}
+.logo b{display:block;font:700 1.35rem/1.1 var(--serif);letter-spacing:.04em;text-transform:uppercase}
+.logo b span{color:var(--brand)}
+.logo small{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.menu{max-width:720px;margin:auto;border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.menu-top{display:flex;justify-content:space-between;align-items:center;font-weight:700;letter-spacing:.08em}
+.burger{width:42px;height:42px;border-radius:50%;border:0;background:#eef1f8;cursor:pointer;font-size:1.2rem}
+.menu.open .burger{background:var(--brand);color:#fff}
+.menu ul{list-style:none;margin:10px 0 0;padding:0;display:none;gap:8px}
+.menu.open ul{display:grid}
+.menu a{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-weight:600}
+.menu a.hot{background:var(--brand);color:#fff;border-color:var(--brand)}
+main{max-width:720px;margin:auto;padding:0 16px}
+section{padding:26px 0}
+.kicker{color:var(--brand);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem}
+h1{font-size:clamp(2rem,8vw,3rem);line-height:1.12;margin:12px 0 16px}
+h2{font-size:1.65rem;line-height:1.2;margin:8px 0 12px}
+.lead{color:var(--muted);font-size:1.08rem}
+.btn{display:inline-block;width:100%;background:var(--brand);color:#fff;border:0;border-radius:10px;padding:16px 22px;font:700 1rem var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 20px rgba(215,26,47,.25);text-decoration:none;text-align:center;margin-top:10px}
+.btn:hover{background:var(--brand-dark)}
+.btn.ghost{background:#fff;color:var(--brand);border:1px solid var(--line);box-shadow:none}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.btn:focus-visible,input:focus-visible,.burger:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 4px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-weight:700}
+.stat small{display:block;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-bottom:16px;box-shadow:0 6px 24px rgba(17,24,39,.05)}
+.card h3{margin:0 0 10px;font-size:1.2rem}
+.checks{list-style:none;padding:0;margin:0}
+.checks li{display:flex;gap:12px;padding:7px 0}
+.checks li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:2px}
+.must li::before{content:"!";background:var(--brand)}
+.step{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border:0}
+.step i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700}
+.step b{display:block}.step span{color:var(--muted)}
+.plan{border-top:5px solid var(--brand)}
+.price{font-size:2rem;font-weight:800;margin:6px 0}
+.dark{background:var(--navy);color:#e5e9f2;border-radius:var(--r);padding:24px}
+.dark h2{color:#fff}.dark .lead{color:#b9c1d1}
+.field{margin-bottom:12px}
+input[type=text],input[type=email]{width:100%;padding:15px;border:1px solid #b9c1d1;border-radius:10px;font:inherit}
+.hp{position:absolute;left:-9999px}
+.msg{margin-top:10px;font-weight:600;display:none}.msg.bad{color:#ff8a96}.msg.good{color:#6ee7b7}
+footer{background:var(--navy);color:#b9c1d1;margin-top:30px;padding:36px 16px}
+footer .in{max-width:720px;margin:auto}
+footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;letter-spacing:.04em}footer .wm span{color:var(--brand)}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0;padding:0;list-style:none}
+.foot-links a{color:#fff;text-decoration:none;font-weight:600}
+.vid{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:14px}
+.vthumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy),#2a3350);display:grid;place-items:center;cursor:pointer;border:0;width:100%}
+.vthumb::after{content:"▶";width:60px;height:60px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:1.3rem}
+.vthumb[disabled]{cursor:default}.vthumb[disabled]::after{background:#6b7385}
+.vid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.vtxt{padding:16px}.vtxt b{display:block;font-size:1.1rem}.vtxt span{color:var(--muted)}
+.rev .who{display:flex;gap:12px;align-items:center;margin-bottom:8px}
+.rev .av{width:42px;height:42px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:700}
+.rev small{color:var(--muted);display:block}.rev .st{color:#f5a623;letter-spacing:2px}
+.fgrp{border:1px solid #2a3350;border-radius:var(--r);padding:16px 18px;margin-bottom:12px}
+.fgrp h4{margin:0 0 8px;color:#8b95ab;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
+.fgrp a{display:flex;justify-content:space-between;color:#fff;text-decoration:none;font-weight:600;padding:10px 0}
+.fgrp a::after{content:"→";color:#8b95ab}
+@media(min-width:700px){.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.two .card{margin:0}}
+</style>
+</head>
+<body>
+<div class="strip">Live and work in Canada</div>
+
+<header>
+  <div class="logo"><div class="mark" id="logoMark">M</div>
+    <div><b id="brandA"></b><small>Skilled immigration assessment</small></div></div>
+  <nav class="menu" id="menu">
+    <div class="menu-top"><span>MENU</span><button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">☰</button></div>
+    <ul>
+      <li><a href="#" class="lang">Language <b style="color:var(--brand)">EN</b></a></li>
+      <li><a href="#top">Home</a></li>
+      <li><a class="hot" data-assess href="#">Immigrate to Canada</a></li>
+      <li><a href="#" data-link="occupations">Occupations</a></li>
+      <li><a href="#" data-link="points">Points Calculator</a></li>
+      <li><a href="#" data-link="faq">FAQ</a></li>
+      <li><a href="#" data-link="news">News</a></li>
+      <li><a href="#guide">Contact Us</a></li>
+      <li><a href="#" data-link="login">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <section>
+    <div class="kicker">Canada skilled migration assessment</div>
+    <h1>Check your pathway to Canadian permanent residence</h1>
+    <p class="lead">Take a guided assessment covering Federal Skilled Worker, Express Entry and CRS competitiveness, then get practical next steps for your profile.</p>
+    <a class="btn" data-assess href="#">Start eligibility assessment</a>
+    <a class="btn ghost" href="#process">See how it works</a>
+    <div class="stats">
+      <div class="stat">5 min<small>assessment</small></div>
+      <div class="stat">CRS estimate<small>points score</small></div>
+      <div class="stat">FSW check<small>basic eligibility</small></div>
+      <div class="stat">Guide<small>next steps</small></div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div class="card"><h3>If eligible, you can</h3>
+      <ul class="checks">
+        <li>Live in Canada as a permanent resident</li>
+        <li>Work, study and settle in any province or territory</li>
+        <li>Access public healthcare once provincial rules are met</li>
+        <li>Include eligible family members in your plan</li>
+        <li>Progress toward Canadian citizenship</li>
+      </ul></div>
+    <div class="card" style="margin-top:16px"><h3>You will need</h3>
+      <ul class="checks must">
+        <li>Skilled work experience in an eligible TEER occupation</li>
+        <li>Enough points for the Federal Skilled Worker pass mark, or another Express Entry route</li>
+        <li>Language, education and admissibility documents</li>
+      </ul></div>
+  </section>
+
+  <section id="process">
+    <div class="kicker">The process</div>
+    <h2>Start with your occupation, then confirm your score</h2>
+    <div class="card">
+      <div class="step"><i>1</i><div><b>Take the eligibility assessment</b><span>Answer a few short questions. It takes about five minutes.</span></div></div>
+      <div class="step"><i>2</i><div><b>See your result</b><span>Get an indicative points score and the pathways that may fit.</span></div></div>
+      <div class="step"><i>3</i><div><b>Find ways to improve your score</b><span>Check where language, education, work history or partner factors could help.</span></div></div>
+      <div class="step"><i>4</i><div><b>Get your next-steps guide</b><span>Know which documents and forms to prepare before you apply.</span></div></div>
+    </div>
+    <a class="btn" data-assess href="#">Start eligibility assessment</a>
+  </section>
+
+  <section>
+    <div class="kicker">About the skilled program</div>
+    <h2>Points-based and ranked</h2>
+    <p>Canadian skilled migration is points-tested. Your assessment gives an indicative Federal Skilled Worker result and an Express Entry CRS estimate from your answers. If you don't meet the minimums yet, you may need to build your profile first. If your score is competitive, it's worth exploring your options further.</p>
+    <p>Any real application needs evidence for every claim you make, so keep your documents ready.</p>
+    <div class="card"><h3>How long you can stay</h3><p style="margin:0">Permanent residence has no fixed end date, as long as you meet residency obligations and follow Canadian law.</p></div>
+    <div class="card"><h3>Including family</h3><p style="margin:0">Eligible family members, such as a spouse or partner and dependent children, may be included in your plan.</p></div>
+  </section>
+
+  <section id="services">
+    <div class="kicker">Services</div>
+    <h2>Get help beyond the assessment</h2>
+    <div class="two">
+      <div class="card plan"><h3 data-p="0.name"></h3>
+        <div class="price" data-p="0.price"></div>
+        <ul class="checks" data-l="0"></ul>
+        <a class="btn" data-p="0.cta" data-href="0.url" href="#"></a></div>
+      <div class="card plan" style="margin-top:16px"><h3 data-p="1.name"></h3>
+        <div class="price" data-p="1.price"></div>
+        <ul class="checks" data-l="1"></ul>
+        <a class="btn" data-p="1.cta" data-href="1.url" href="#"></a></div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="kicker">Extra information</div>
+    <h2>Learn the key terms before your next step</h2>
+    <p class="lead">Short explainer videos make the skilled migration process easier to follow. Watch them, then take the assessment.</p>
+    <div id="vlist"></div>
+    <a class="btn" data-assess href="#">Check your eligibility</a>
+  </section>
+
+  <section id="reviews" hidden>
+    <div class="kicker">Reviews</div>
+    <h2>Clarity before a life-changing move</h2>
+    <div id="rlist"></div>
+    <a class="btn" data-assess href="#">Start eligibility assessment</a>
+  </section>
+
+  <section id="guide">
+    <div class="dark">
+      <div class="kicker">Free guide</div>
+      <h2>How to migrate to Canada in 6 steps</h2>
+      <p class="lead">Get a plain-English next-steps guide before you start your assessment.</p>
+      <form id="gform" novalidate>
+        <div class="field"><input type="text" id="gname" placeholder="Your name" autocomplete="name" aria-label="Your name"></div>
+        <div class="field"><input type="email" id="gemail" placeholder="Email address" autocomplete="email" aria-label="Email address"></div>
+        <input class="hp" type="text" id="gweb" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit" id="gbtn">Send me the guide</button>
+        <div class="msg" id="gmsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">
+    <div class="wm" id="brandB"></div>
+    <p id="disc"></p>
+    <a class="btn" data-assess href="#">Start eligibility assessment</a>
+    <div class="fgrp"><h4>Start here</h4><a href="#top">Home</a><a data-assess href="#">Immigrate to Canada</a><a data-assess href="#">Eligibility Assessment</a></div>
+    <div class="fgrp"><h4>Tools</h4><a href="#" data-link="occupations">Occupations</a><a href="#" data-link="points">Points Calculator</a><a href="#" data-link="news">News</a></div>
+    <div class="fgrp"><h4>Support</h4><a href="#" data-link="subscription">Manage Subscription</a><a href="#" data-link="faq">FAQ</a><a href="#guide">Contact Us</a></div>
+    <div class="fgrp"><h4>Company</h4><a href="#" data-link="about">About Us</a><a href="#" data-link="terms">Terms of Service</a><a href="#" data-link="privacy">Privacy Policy</a></div>
+    <p id="company"></p>
+  </div>
+</footer>
+
+<script>
+/* ===== CONFIG: edit these only ===== */
+const CONFIG = {
+  brand: ["Your","Brand"],
+  assessmentUrl: "canada-assessment.html",   // path to the assessment page
+  endpoint: "",                               // POST JSON for the free-guide form. Empty = console only
+  company: "© 2026 Your Brand. All rights reserved. Your address here.",
+  /* Menu and footer links: put your page URLs here */
+  links: {occupations:"#", points:"#", faq:"#", news:"#", login:"#", subscription:"#", about:"#", terms:"#", privacy:"#"},
+  /* Videos: paste an embed URL (e.g. https://www.youtube.com/embed/VIDEO_ID). Empty url shows a greyed placeholder */
+  videos: [
+    {title:"What is the National Occupation Classification?", desc:"Why your occupation match matters before you rely on a skilled pathway.", url:""},
+    {title:"How category-based Express Entry rounds work", desc:"How category rounds can affect which skilled profiles get attention.", url:""},
+    {title:"How to apply for Express Entry", desc:"Where the official application happens after you prepare your profile.", url:""}
+  ],
+  /* Reviews: add only real, permitted client reviews. Empty list hides the section.
+     Example: {name:"Client N.", when:"2 months ago", stars:5, text:"..."} */
+  reviews: [
+    {name:"Sample reviewer", when:"PLACEHOLDER", stars:5, text:"Replace this with a real client review before launch."},
+    {name:"Sample reviewer", when:"PLACEHOLDER", stars:5, text:"Replace this with a real client review before launch."},
+    {name:"Sample reviewer", when:"PLACEHOLDER", stars:5, text:"Replace this with a real client review before launch."}
+  ],
+  plans: [
+    {name:"Consultation", price:"$000", cta:"Book here", url:"#",
+     items:["One-on-one online meeting about your options","Review of your assessment result","Personalised step-by-step plan"]},
+    {name:"Full support", price:"$0,000", cta:"Enquire here", url:"#",
+     items:["Dedicated account manager","Document checks","Language-test preparation guidance","Priority email support"]}
+  ]
+};
+
+const $=id=>document.getElementById(id);
+$("brandA").innerHTML=$("brandB").innerHTML=CONFIG.brand[0]+" <span>"+CONFIG.brand[1]+"</span>";
+$("logoMark").textContent=CONFIG.brand[0][0];
+$("disc").textContent=CONFIG.brand.join(" ")+" is a private information service and is not associated with the Government of Canada. We do not sell or provide visas. Information is general in nature and should not be taken as legal advice.";
+$("company").textContent=CONFIG.company;
+document.querySelectorAll("[data-assess]").forEach(a=>a.href=CONFIG.assessmentUrl);
+document.querySelectorAll("[data-p]").forEach(el=>{const[i,k]=el.dataset.p.split(".");el.textContent=CONFIG.plans[i][k]});
+document.querySelectorAll("[data-href]").forEach(el=>{const[i,k]=el.dataset.href.split(".");el.href=CONFIG.plans[i][k]});
+document.querySelectorAll("[data-l]").forEach(ul=>ul.innerHTML=CONFIG.plans[ul.dataset.l].items.map(t=>"<li>"+t+"</li>").join(""));
+
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+document.querySelectorAll("[data-link]").forEach(a=>a.href=CONFIG.links[a.dataset.link]||"#");
+$("vlist").innerHTML=CONFIG.videos.map((v,i)=>
+  '<div class="vid"><button class="vthumb" data-v="'+i+'" aria-label="Play: '+esc(v.title)+'"'+(v.url?"":" disabled")+'></button>'+
+  '<div class="vtxt"><b>'+esc(v.title)+'</b><span>'+esc(v.desc)+'</span></div></div>').join("");
+$("vlist").addEventListener("click",e=>{
+  const b=e.target.closest(".vthumb");if(!b||b.disabled)return;
+  const u=CONFIG.videos[b.dataset.v].url;if(!/^https:\/\//.test(u))return;
+  const f=document.createElement("iframe");f.src=u+(u.includes("?")?"&":"?")+"autoplay=1";f.allow="autoplay; encrypted-media; fullscreen";f.allowFullscreen=true;f.title="Video";
+  b.replaceWith(f);
+});
+if(CONFIG.reviews.length){
+  $("reviews").hidden=false;
+  $("rlist").innerHTML=CONFIG.reviews.map(r=>
+    '<div class="card rev"><div class="who"><div class="av">'+esc(r.name[0])+'</div><div><b>'+esc(r.name)+'</b><small>'+esc(r.when||"")+'</small></div></div>'+
+    '<div class="st" aria-label="'+(r.stars||5)+' out of 5">'+"★".repeat(r.stars||5)+'</div><p style="margin:8px 0 0">“'+esc(r.text)+'”</p></div>').join("");
+}
+$("burger").onclick=()=>{const o=$("menu").classList.toggle("open");$("burger").setAttribute("aria-expanded",o)};
+document.querySelectorAll("#menu a").forEach(a=>a.addEventListener("click",()=>$("menu").classList.remove("open")));
+
+$("gform").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const m=$("gmsg"),n=$("gname").value.trim(),em=$("gemail").value.trim();
+  const show=(t,c)=>{m.textContent=t;m.className="msg "+c;m.style.display="block"};
+  if(n.length<2)return show("Enter your name.","bad");
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em))return show("Enter a valid email address.","bad");
+  if($("gweb").value)return show("Thanks! Check your inbox.","good"); // honeypot
+  const b=$("gbtn");b.disabled=true;b.textContent="Sending…";
+  const p={type:"free_guide",name:n,email:em,submittedAt:new Date().toISOString(),source:location.href};
+  try{
+    if(CONFIG.endpoint){const r=await fetch(CONFIG.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p)});if(!r.ok)throw 0}
+    else console.info("Guide signup (no endpoint set):",p);
+    show("Thanks! Check your inbox.","good");$("gform").reset();
+  }catch(x){show("We couldn't send that. Check your connection and try again.","bad")}
+  finally{b.disabled=false;b.textContent="Send me the guide"}
+});
+</script>
+</body>
+</html>
