@@ -71,25 +71,38 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 .vthumb[disabled]{cursor:default}.vthumb[disabled]::after{background:#6b7385}
 .vid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 .vtxt{padding:16px}.vtxt b{display:block;font-size:1.1rem}.vtxt span{color:var(--muted)}
-.rev .who{display:flex;gap:12px;align-items:center;margin-bottom:8px}
-.rev .av{width:42px;height:42px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:700}
-.rev small{color:var(--muted);display:block}.rev .st{color:#0f9d58;letter-spacing:2px}
+
+/* ===== Reviews with avatars ===== */
+.rev{padding:18px}
+.rev .who{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.rev .av{width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#eef1f8;border:2px solid #fff;box-shadow:0 2px 6px rgba(17,24,39,.12)}
+.rev .who b{display:block;font-size:1rem}
+.rev small{color:var(--muted);display:block;font-size:.85rem}
+.rev .st{color:#0f9d58;letter-spacing:2px;font-size:1.05rem;margin-bottom:6px}
+.rev p{margin:0;color:#374151}
+
 .fgrp{border:1px solid #2a3350;border-radius:var(--r);padding:16px 18px;margin-bottom:12px}
 .fgrp h4{margin:0 0 8px;color:#8b95ab;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
 .fgrp a{display:flex;justify-content:space-between;color:#fff;text-decoration:none;font-weight:600;padding:10px 0}
 .fgrp a::after{content:"→";color:#8b95ab}
-.searchbar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.searchbar input{flex:1;min-width:180px;padding:14px;border:1px solid var(--line);border-radius:10px;font:inherit}
-.searchbar select{flex:0 0 140px;padding:14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
-.occ-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-.occ-item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-.occ-item .meta{min-width:0;flex:1}
-.occ-item b{display:block}
-.occ-item small{color:var(--muted)}
-.occ-item .noc{font:700 .78rem var(--sans);background:#eef1f8;color:var(--navy);padding:4px 10px;border-radius:20px;letter-spacing:.05em}
-.occ-item .teer{font:700 .78rem var(--sans);padding:4px 10px;border-radius:20px;color:#fff}
-.teer-1{background:#0f7b5f}.teer-2{background:#1d4ed8}.teer-3{background:#b45309}
+
+/* ===== Occupations (radio) ===== */
+.occ-fieldset{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 14px;background:#fff}
+.occ-fieldset legend{font:700 .78rem var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:20px;color:#fff}
+.occ-fieldset.leg1 legend{background:#0f7b5f}
+.occ-fieldset.leg2 legend{background:#1d4ed8}
+.occ-fieldset.leg3 legend{background:#b45309}
+.occ-radio{display:flex;gap:12px;align-items:flex-start;padding:10px 8px;border-radius:8px;cursor:pointer;transition:background .15s}
+.occ-radio:hover{background:#f8fafc}
+.occ-radio input[type=radio]{margin-top:5px;width:18px;height:18px;accent-color:var(--brand);flex-shrink:0;cursor:pointer}
+.occ-radio .meta{min-width:0;flex:1}
+.occ-radio b{display:block;font-size:.97rem;font-weight:600;line-height:1.3}
+.occ-radio small{color:var(--muted);font-size:.82rem}
+.occ-radio input:checked ~ .meta b{color:var(--brand)}
+.occ-radio:has(input:checked){background:#fff3f4}
+
 .occ-empty{color:var(--muted);padding:20px;text-align:center;border:1px dashed var(--line);border-radius:12px}
+
 @media(min-width:700px){.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.two .card{margin:0}}
 
 /* ===== STK Payment Modal ===== */
@@ -101,9 +114,9 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 .stk-box h3{margin:0 0 6px;font-size:1.3rem}
 .stk-box p{color:var(--muted);font-size:.95rem;margin:0 0 16px}
 .stk-amount{background:#f5f7fb;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:16px;text-align:left}
-.stk-amount .row{display:flex;justify-content:space-between;font-size:.9rem;padding:4px 0}
-.stk-amount .row span:first-child{color:var(--muted)}
-.stk-amount .row span:last-child{font-weight:700}
+.stk-amount .row{display:flex;justify-content:space-between;font-size:.9rem;padding:4px 0;gap:12px}
+.stk-amount .row span:first-child{color:var(--muted);flex-shrink:0}
+.stk-amount .row span:last-child{font-weight:700;text-align:right}
 .stk-spinner{width:48px;height:48px;border:4px solid var(--line);border-top-color:var(--brand);border-radius:50%;animation:spin .9s linear infinite;margin:6px auto 14px}
 @keyframes spin{to{transform:rotate(360deg)}}
 .stk-btn{width:100%;border:0;border-radius:10px;padding:14px;font:700 1rem var(--sans);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;margin-top:6px}
@@ -171,19 +184,24 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 
   <section id="occupations">
     <div class="kicker">Occupations</div>
-    <h2>Browse eligible skilled occupations</h2>
-    <p class="lead">These are common TEER 1–3 occupations that can qualify for Canadian skilled migration. Search by title, NOC code, or filter by TEER level.</p>
-    <div class="searchbar">
-      <input type="text" id="occSearch" placeholder="Search job title or NOC…" aria-label="Search occupations">
-      <select id="occTeer" aria-label="Filter by TEER">
-        <option value="">All TEER</option>
-        <option value="1">TEER 1 (Degree)</option>
-        <option value="2">TEER 2 (Diploma/Apprenticeship)</option>
-        <option value="3">TEER 3 (Certificate/Training)</option>
-      </select>
-    </div>
-    <ul class="occ-list" id="occList"></ul>
-    <p class="occ-empty" id="occEmpty" hidden>No occupations match your search.</p>
+    <h2>Select your closest occupation</h2>
+    <p class="lead">Pick the option that best matches your work experience. Your selection is sent along with your guide request so we can tailor the next steps.</p>
+
+    <form id="occForm">
+      <fieldset class="occ-fieldset leg1">
+        <legend>TEER 1 · University degree</legend>
+        <div id="occTeer1"></div>
+      </fieldset>
+      <fieldset class="occ-fieldset leg2">
+        <legend>TEER 2 · Diploma or apprenticeship</legend>
+        <div id="occTeer2"></div>
+      </fieldset>
+      <fieldset class="occ-fieldset leg3">
+        <legend>TEER 3 · Certificate or training</legend>
+        <div id="occTeer3"></div>
+      </fieldset>
+    </form>
+
     <a class="btn" data-assess href="#">Start eligibility assessment</a>
   </section>
 
@@ -280,7 +298,7 @@ const CONFIG = {
   brand: ["MaplePath", "Canada"],
   assessmentUrl: "canada-assessment.html",
   endpoint: "/api/guide",
-  guideFee: 250,                          // ← Amount in KES to charge for the guide
+  guideFee: 250,
   company: "© 2026 MaplePath Canada Ltd. 150 King Street West, Toronto, ON M5H 1J9, Canada.",
   links: {points:"#", faq:"#", news:"#", login:"#", subscription:"#", about:"#", terms:"#", privacy:"#"},
   videos: [
@@ -289,11 +307,11 @@ const CONFIG = {
     {title:"How to apply for Express Entry", desc:"Where the official application happens after you prepare your profile.", url:"https://www.youtube.com/embed/HMbXO8zJdLY"}
   ],
   reviews: [
-    {name:"Aisha M.", when:"6 months ago", stars:5, text:"The assessment made my Canada pathway much clearer. I could finally see which parts of my profile needed work before spending money on advice."},
-    {name:"Daniel K.", when:"6 months ago", stars:5, text:"I was confused between Express Entry and provincial options. This gave me a simple starting point and showed what to check first."},
-    {name:"Sofia R.", when:"5 months ago", stars:5, text:"The result came through quickly and helped me understand why my language score and documents mattered so much."},
-    {name:"Rahul P.", when:"5 months ago", stars:5, text:"I wanted to know if my occupation could actually fit a Canada pathway. The score breakdown made the next steps easier to follow."},
-    {name:"Maria L.", when:"4 months ago", stars:5, text:"A clear breakdown I could actually follow. Worth the few minutes before committing to anything bigger."}
+    {name:"Aisha M.", when:"6 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/women/44.jpg", text:"The assessment made my Canada pathway much clearer. I could finally see which parts of my profile needed work before spending money on advice."},
+    {name:"Daniel K.", when:"6 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/men/32.jpg", text:"I was confused between Express Entry and provincial options. This gave me a simple starting point and showed what to check first."},
+    {name:"Sofia R.", when:"5 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/women/68.jpg", text:"The result came through quickly and helped me understand why my language score and documents mattered so much."},
+    {name:"Rahul P.", when:"5 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/men/75.jpg", text:"I wanted to know if my occupation could actually fit a Canada pathway. The score breakdown made the next steps easier to follow."},
+    {name:"Maria L.", when:"4 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/women/23.jpg", text:"A clear breakdown I could actually follow. Worth the few minutes before committing to anything bigger."}
   ],
   plans: [
     {name:"Consultation", price:"$49", cta:"Book here", url:"#",
@@ -342,27 +360,30 @@ document.querySelectorAll("[data-l]").forEach(ul=>ul.innerHTML=CONFIG.plans[ul.d
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 document.querySelectorAll("[data-link]").forEach(a=>a.href=CONFIG.links[a.dataset.link]||"#");
 
-/* ===== Occupations ===== */
-const occList=$("occList"), occEmpty=$("occEmpty");
+/* ===== Occupations as radio buttons, grouped by TEER ===== */
 function renderOccupations(){
-  const q=($("occSearch").value||"").toLowerCase().trim();
-  const teer=$("occTeer").value;
-  const filtered=CONFIG.occupations.filter(o=>{
-    if(teer && String(o.teer)!==teer) return false;
-    if(!q) return true;
-    return (o.title+" "+o.noc+" "+(o.sector||"")).toLowerCase().includes(q);
+  [1,2,3].forEach(teer=>{
+    const container = $("occTeer"+teer);
+    const list = CONFIG.occupations.filter(o=>o.teer===teer);
+    container.innerHTML = list.map((o,i)=>`
+      <label class="occ-radio">
+        <input type="radio" name="occupation" value="${esc(o.noc)}|${esc(o.title)}|${o.teer}">
+        <span class="meta">
+          <b>${esc(o.title)}</b>
+          <small>NOC ${esc(o.noc)}${o.sector?' · '+esc(o.sector):''}</small>
+        </span>
+      </label>
+    `).join("");
   });
-  occEmpty.hidden=filtered.length>0;
-  occList.innerHTML=filtered.map(o=>
-    '<li class="occ-item"><div class="meta"><b>'+esc(o.title)+'</b>'+
-    '<small>NOC '+esc(o.noc)+(o.sector?' · '+esc(o.sector):'')+'</small></div>'+
-    '<span class="noc">NOC '+esc(o.noc)+'</span>'+
-    '<span class="teer teer-'+o.teer+'">TEER '+o.teer+'</span></li>'
-  ).join("");
 }
 renderOccupations();
-$("occSearch").addEventListener("input",renderOccupations);
-$("occTeer").addEventListener("change",renderOccupations);
+
+function getSelectedOccupation(){
+  const r = document.querySelector('input[name="occupation"]:checked');
+  if(!r) return null;
+  const [noc,title,teer] = r.value.split('|');
+  return {noc,title,teer:Number(teer)};
+}
 
 /* ===== Videos ===== */
 $("vlist").innerHTML=CONFIG.videos.map((v,i)=>
@@ -375,11 +396,18 @@ $("vlist").addEventListener("click",e=>{
   b.replaceWith(f);
 });
 
-/* ===== Reviews ===== */
+/* ===== Reviews with avatar images ===== */
 if(CONFIG.reviews.length){
-  $("rlist").innerHTML=CONFIG.reviews.map(r=>
-    '<div class="card rev"><div class="who"><div class="av">'+esc(r.name[0])+'</div><div><b>'+esc(r.name)+'</b><small>'+esc(r.when||"")+'</small></div></div>'+
-    '<div class="st" aria-label="'+(r.stars||5)+' out of 5">'+"★".repeat(r.stars||5)+'</div><p style="margin:8px 0 0">“'+esc(r.text)+'”</p></div>').join("");
+  $("rlist").innerHTML=CONFIG.reviews.map(r=>`
+    <div class="card rev">
+      <div class="who">
+        <img class="av" src="${esc(r.avatar)}" alt="${esc(r.name)}" loading="lazy" onerror="this.style.background='#eef1f8';this.removeAttribute('src')">
+        <div><b>${esc(r.name)}</b><small>${esc(r.when||"")}</small></div>
+      </div>
+      <div class="st" aria-label="${r.stars||5} out of 5">${"★".repeat(r.stars||5)}</div>
+      <p>“${esc(r.text)}”</p>
+    </div>
+  `).join("");
 } else { $("reviews").hidden=true; }
 
 /* ===== Menu ===== */
@@ -387,7 +415,7 @@ $("burger").onclick=()=>{const o=$("menu").classList.toggle("open");$("burger").
 document.querySelectorAll("#menu a").forEach(a=>a.addEventListener("click",()=>$("menu").classList.remove("open")));
 
 /* ═══════════════════════════════════════════════════════════
-   GUIDE FORM → confirmation message → STK push → poll status
+   GUIDE FORM → confirmation → STK push → poll status
    ═══════════════════════════════════════════════════════════ */
 const stkModal = $("stkModal");
 const stkBox   = $("stkBox");
@@ -408,9 +436,11 @@ function normalizePhone(raw){
   return p;
 }
 
-/* Step A: confirmation message BEFORE the STK push */
-function showConfirm(name, phone, fee){
+function showConfirm(name, phone, fee, occupation){
   const display = phone.replace(/^254/, '0').replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3');
+  const occLine = occupation
+    ? `<div class="row"><span>Occupation</span><span>${esc(occupation.title)} (NOC ${esc(occupation.noc)})</span></div>`
+    : '';
   stkBox.innerHTML = `
     <div class="stk-ico">💳</div>
     <h3 id="stkTitle">Confirm your guide request</h3>
@@ -418,6 +448,7 @@ function showConfirm(name, phone, fee){
     <div class="stk-amount">
       <div class="row"><span>Guide</span><span>How to migrate to Canada in 6 steps</span></div>
       <div class="row"><span>Delivery</span><span>Email (PDF)</span></div>
+      ${occLine}
       <div class="row"><span>M-Pesa number</span><span>${esc(display)}</span></div>
       <div class="row"><span>Amount</span><span>KSh ${fee.toLocaleString()}</span></div>
     </div>
@@ -425,11 +456,10 @@ function showConfirm(name, phone, fee){
     <button class="stk-btn ghost" id="cancelPayBtn">Not now</button>
   `;
   stkModal.classList.add("open");
-  $("confirmPayBtn").onclick = () => startStk(name, phone, fee);
+  $("confirmPayBtn").onclick = () => startStk(name, phone, fee, occupation);
   $("cancelPayBtn").onclick  = closeModal;
 }
 
-/* Step B: STK push + polling */
 function showWaiting(phone, fee){
   const display = phone.replace(/^254/, '0');
   stkBox.innerHTML = `
@@ -438,7 +468,7 @@ function showWaiting(phone, fee){
     <p>An M-Pesa prompt was sent to <b>${esc(display)}</b>. Enter your PIN to pay <b>KSh ${fee.toLocaleString()}</b>.</p>
     <button class="stk-btn ghost" id="cancelWaitBtn">Cancel</button>
   `;
-  stkModal.classList.add("open");
+  stkModal.classList.add('open');
   $("cancelWaitBtn").onclick = closeModal;
 }
 
@@ -449,11 +479,11 @@ function showSuccess(name, email){
     <p>Thanks ${esc(name)} — we sent the 6-step guide to <b>${esc(email)}</b>. Check your spam folder if it doesn't arrive in 2 minutes.</p>
     <button class="stk-btn primary" id="doneBtn">Done</button>
   `;
-  stkModal.classList.add("open");
+  stkModal.classList.add('open');
   $("doneBtn").onclick = closeModal;
 }
 
-function showFail(reason, name, phone, fee){
+function showFail(reason, name, phone, fee, occupation){
   stkBox.innerHTML = `
     <div class="stk-fail-ico">✕</div>
     <h3 id="stkTitle">Payment not completed</h3>
@@ -461,8 +491,8 @@ function showFail(reason, name, phone, fee){
     <button class="stk-btn primary" id="retryBtn">Try again</button>
     <button class="stk-btn ghost" id="closeFailBtn">Close</button>
   `;
-  stkModal.classList.add("open");
-  $("retryBtn").onclick     = () => showConfirm(name, phone, fee);
+  stkModal.classList.add('open');
+  $("retryBtn").onclick     = () => showConfirm(name, phone, fee, occupation);
   $("closeFailBtn").onclick = closeModal;
 }
 
@@ -481,7 +511,7 @@ async function pollStatus(transactionId, signal){
   return 'timeout';
 }
 
-async function startStk(name, phone, fee){
+async function startStk(name, phone, fee, occupation){
   showWaiting(phone, fee);
   abortController = new AbortController();
 
@@ -503,14 +533,17 @@ async function startStk(name, phone, fee){
     const result = await pollStatus(data.transactionId, abortController.signal);
 
     if (result === 'success') {
-      // Log the paid lead
       try {
         await fetch(CONFIG.endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            type: 'paid_guide', name, phone,
+            type: 'paid_guide',
+            name, phone,
             email: $("gemail").value.trim(),
+            occupation: occupation ? occupation.title : null,
+            noc: occupation ? occupation.noc : null,
+            teer: occupation ? occupation.teer : null,
             transactionId: data.transactionId,
             reference, amount: fee,
             submittedAt: new Date().toISOString()
@@ -519,15 +552,16 @@ async function startStk(name, phone, fee){
       } catch(_) {}
       showSuccess(name, $("gemail").value.trim());
       $("gform").reset();
+      document.querySelectorAll('input[name="occupation"]').forEach(r=>r.checked=false);
     } else if (result === 'cancelled') {
       /* user closed modal */
     } else if (result === 'failed') {
-      showFail('The prompt was declined or cancelled.', name, phone, fee);
+      showFail('The prompt was declined or cancelled.', name, phone, fee, occupation);
     } else {
-      showFail('We did not receive confirmation in time. If you were charged, contact us with reference ' + reference + '.', name, phone, fee);
+      showFail('We did not receive confirmation in time. If you were charged, contact us with reference ' + reference + '.', name, phone, fee, occupation);
     }
   } catch (err) {
-    showFail(err.message || 'Network error.', name, phone, fee);
+    showFail(err.message || 'Network error.', name, phone, fee, occupation);
   } finally {
     abortController = null;
   }
@@ -546,10 +580,12 @@ $("gform").addEventListener("submit", async e => {
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) return show("Enter a valid email address.","bad");
   const phone = normalizePhone(ph);
   if(!/^254[17]\d{8}$/.test(phone)) return show("Enter a valid M-Pesa number (e.g. 0712 345 678).","bad");
+  const occupation = getSelectedOccupation();
+  if(!occupation) return show("Please select your occupation above first.","bad");
   if($("gweb").value) return show("Thanks! Check your inbox.","good");
 
   m.style.display = 'none';
-  showConfirm(n, phone, CONFIG.guideFee);
+  showConfirm(n, phone, CONFIG.guideFee, occupation);
 });
 </script>
 </body>
