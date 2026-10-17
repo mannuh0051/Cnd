@@ -8,24 +8,25 @@
 :root{
   --brand:#d71a2f; --brand-dark:#b01224; --navy:#111827; --bg:#f5f7fb; --card:#fff;
   --ink:#111827; --muted:#5b6475; --line:#dde2ec; --ok:#12a36b; --soft:#fff3f4;
-  --r:14px; --sans:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; --serif:Georgia,"Times New Roman",serif;
+  --r:16px; --sans:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; --serif:Georgia,"Times New Roman",serif;
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
 .strip{background:#eef1f8;color:var(--brand);text-align:center;font-size:.8rem;font-weight:700;letter-spacing:.12em;padding:9px;text-transform:uppercase}
 header{background:#fff;padding:14px 16px;border-bottom:1px solid var(--line)}
 .logo{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:12px}
-.mark{width:44px;height:44px;border-radius:10px;background:var(--brand);color:#fff;display:grid;place-items:center;font:700 1.3rem var(--serif)}
+.mark{width:44px;height:44px;border-radius:12px;background:var(--brand);color:#fff;display:grid;place-items:center;font:700 1.3rem var(--serif)}
 .logo b{display:block;font:700 1.35rem/1.1 var(--serif);letter-spacing:.04em;text-transform:uppercase}
 .logo b span{color:var(--brand)}
 .logo small{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .menu{max-width:720px;margin:auto;border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
 .menu-top{display:flex;justify-content:space-between;align-items:center;font-weight:700;letter-spacing:.08em}
-.burger{width:42px;height:42px;border-radius:50%;border:0;background:#eef1f8;cursor:pointer;font-size:1.2rem}
+.burger{width:42px;height:42px;border-radius:50%;border:0;background:#eef1f8;cursor:pointer;font-size:1.2rem;transition:background .2s}
 .menu.open .burger{background:var(--brand);color:#fff}
 .menu ul{list-style:none;margin:10px 0 0;padding:0;display:none;gap:8px}
 .menu.open ul{display:grid}
-.menu a{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-weight:600}
+.menu a{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none;font-weight:600;transition:all .2s}
+.menu a:hover{border-color:var(--brand)}
 .menu a.hot{background:var(--brand);color:#fff;border-color:var(--brand)}
 main{max-width:720px;margin:auto;padding:0 16px}
 section{padding:26px 0}
@@ -34,15 +35,17 @@ h1{font-size:clamp(2rem,8vw,3rem);line-height:1.12;margin:12px 0 16px}
 h2{font-size:1.65rem;line-height:1.2;margin:8px 0 12px}
 h3{font-size:1.2rem;margin:0 0 10px}
 .lead{color:var(--muted);font-size:1.08rem}
-.btn{display:inline-block;width:100%;background:var(--brand);color:#fff;border:0;border-radius:10px;padding:16px 22px;font:700 1rem var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 20px rgba(215,26,47,.25);text-decoration:none;text-align:center;margin-top:10px}
-.btn:hover{background:var(--brand-dark)}
+.btn{display:inline-block;width:100%;background:var(--brand);color:#fff;border:0;border-radius:12px;padding:16px 22px;font:700 1rem var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 20px rgba(215,26,47,.25);text-decoration:none;text-align:center;margin-top:10px;transition:all .25s cubic-bezier(0.4, 0, 0.2, 1)}
+.btn:hover{background:var(--brand-dark);transform:translateY(-2px);box-shadow:0 12px 25px rgba(215,26,47,.35)}
 .btn.ghost{background:#fff;color:var(--brand);border:1px solid var(--line);box-shadow:none}
-.btn[disabled]{opacity:.55;cursor:not-allowed}
-.btn:focus-visible,input:focus-visible,.burger:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px}
+.btn.ghost:hover{border-color:var(--brand);background:var(--soft)}
+.btn[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.btn:focus-visible,input:focus-visible,select:focus-visible,.burger:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 4px}
-.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-weight:700}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-weight:700;transition:border-color .2s}
+.stat:hover{border-color:var(--brand)}
 .stat small{display:block;color:var(--muted);font-weight:500}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-bottom:16px;box-shadow:0 6px 24px rgba(17,24,39,.05)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-bottom:16px;box-shadow:0 6px 24px rgba(17,24,39,.04)}
 .checks{list-style:none;padding:0;margin:0}
 .checks li{display:flex;gap:12px;padding:7px 0}
 .checks li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:2px}
@@ -51,62 +54,108 @@ h3{font-size:1.2rem;margin:0 0 10px}
 .step:last-child{border:0}
 .step i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700}
 .step b{display:block}.step span{color:var(--muted)}
-.plan{border-top:5px solid var(--brand)}
-.price{font-size:2rem;font-weight:800;margin:6px 0}
-.dark{background:var(--navy);color:#e5e9f2;border-radius:var(--r);padding:24px;border:2px solid transparent;transition:border-color .3s}
-.dark h2{color:#fff}.dark .lead{color:#b9c1d1}
-.field{margin-bottom:12px}
-input[type=text],input[type=email],input[type=tel],select{width:100%;padding:15px;border:1px solid #b9c1d1;border-radius:10px;font:inherit;background:#fff}
-.hp{position:absolute;left:-9999px}
-.msg{margin-top:10px;font-weight:600;display:none}.msg.bad{color:#ff8a96}.msg.good{color:#6ee7b7}
+
+/* 🌟 SMOOTHER DARK FORM BOX 🌟 */
+.dark{
+  background:linear-gradient(145deg, #111827, #1f2937);
+  color:#e5e9f2;border-radius:24px;padding:32px 26px;
+  border:1px solid #374151;
+  box-shadow:0 20px 40px -10px rgba(0,0,0,.4);
+  transition:border-color .3s, box-shadow .3s;
+}
+.dark h2{color:#fff;margin-bottom:6px}
+.dark .lead{color:#9ca3af;font-size:1rem;margin-bottom:20px}
+.dark .field label{display:block;color:#d1d5db;font-size:.85rem;font-weight:600;margin-bottom:6px;margin-left:4px}
+.dark .field input, .dark .field select{
+  width:100%;padding:16px 18px;border:1px solid #4b5563;border-radius:12px;
+  font:inherit;background:#374151;color:#fff;
+  transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dark .field input::placeholder{color:#9ca3af}
+.dark .field input:focus, .dark .field select:focus{
+  border-color:var(--brand);background:#1f2937;
+  box-shadow:0 0 0 4px rgba(215,26,47,.15);outline:none;
+}
+.dark .field select option{background:#1f2937;color:#fff}
+
+/* Smooth Transformative Phone Group */
+.phone-wrap{
+  max-height:0; opacity:0; overflow:hidden; transform:translateY(-15px);
+  transition:all .4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.phone-wrap.show{
+  max-height:120px; opacity:1; transform:translateY(0); margin-top:14px;
+}
+.phone-input-group{
+  display:flex; background:#374151; border:1px solid #4b5563; border-radius:12px; overflow:hidden;
+  transition:all .3s;
+}
+.phone-input-group:focus-within{
+  border-color:var(--brand); background:#1f2937; box-shadow:0 0 0 4px rgba(215,26,47,.15);
+}
+.phone-prefix{
+  background:#1f2937; padding:16px 14px; font-weight:700; color:#d1d5db;
+  border-right:1px solid #4b5563; display:flex; align-items:center; font-size:1rem;
+}
+.phone-input-group input{
+  border:none !important; background:transparent !important; box-shadow:none !important;
+  padding:16px 14px !important; color:#fff !important; border-radius:0 !important;
+}
+.phone-input-group input:focus{outline:none;}
+
+.msg{margin-top:14px;font-weight:600;display:none;text-align:center;padding:10px;border-radius:8px}
+.msg.bad{background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.msg.good{background:rgba(16,185,129,.1);color:#34d399;border:1px solid rgba(16,185,129,.2)}
+
 footer{background:var(--navy);color:#b9c1d1;margin-top:30px;padding:36px 16px}
 footer .in{max-width:720px;margin:auto}
 footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;letter-spacing:.04em}footer .wm span{color:var(--brand)}
 .fgrp{border:1px solid #2a3350;border-radius:var(--r);padding:16px 18px;margin-bottom:12px}
 .fgrp h4{margin:0 0 8px;color:#8b95ab;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
-.fgrp a{display:flex;justify-content:space-between;color:#fff;text-decoration:none;font-weight:600;padding:10px 0}
-.fgrp a::after{content:"→";color:#8b95ab}
+.fgrp a{display:flex;justify-content:space-between;color:#fff;text-decoration:none;font-weight:600;padding:10px 0;transition:color .2s}
+.fgrp a:hover{color:var(--brand)}
+.fgrp a::after{content:"→";color:#8b95ab;transition:transform .2s}
+.fgrp a:hover::after{transform:translateX(4px);color:var(--brand)}
 @media(min-width:700px){.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.two .card{margin:0}}
 
 /* STK modal */
-.stk-modal{position:fixed;inset:0;background:rgba(17,24,39,.65);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
-.stk-modal.open{display:flex}
-.stk-box{background:#fff;border-radius:16px;padding:26px 22px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:stkIn .25s ease}
-@keyframes stkIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.stk-ico{width:60px;height:60px;border-radius:50%;background:#fff3f4;color:var(--brand);display:inline-flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:14px}
-.stk-box h3{margin:0 0 6px;font-size:1.3rem}
-.stk-box p{color:var(--muted);font-size:.95rem;margin:0 0 16px}
-.stk-amount{background:#f5f7fb;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:16px;text-align:left}
-.stk-amount .row{display:flex;justify-content:space-between;font-size:.9rem;padding:4px 0;gap:12px}
+.stk-modal{position:fixed;inset:0;background:rgba(17,24,39,.75);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999;opacity:0;transition:opacity .3s}
+.stk-modal.open{display:flex;opacity:1}
+.stk-box{background:#fff;border-radius:24px;padding:32px 24px;max-width:420px;width:100%;text-align:center;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);transform:translateY(20px) scale(.95);transition:all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275)}
+.stk-modal.open .stk-box{transform:translateY(0) scale(1)}
+.stk-ico{width:64px;height:64px;border-radius:50%;background:var(--soft);color:var(--brand);display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:16px}
+.stk-box h3{margin:0 0 8px;font-size:1.4rem;color:var(--ink)}
+.stk-box p{color:var(--muted);font-size:.95rem;margin:0 0 20px;line-height:1.5}
+.stk-amount{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:20px;text-align:left}
+.stk-amount .row{display:flex;justify-content:space-between;font-size:.9rem;padding:6px 0;gap:12px;border-bottom:1px dashed var(--line)}
+.stk-amount .row:last-child{border-bottom:none}
 .stk-amount .row span:first-child{color:var(--muted);flex-shrink:0}
-.stk-amount .row span:last-child{font-weight:700;text-align:right}
-.stk-spinner{width:48px;height:48px;border:4px solid var(--line);border-top-color:var(--brand);border-radius:50%;animation:spin .9s linear infinite;margin:6px auto 14px}
+.stk-amount .row span:last-child{font-weight:700;text-align:right;color:var(--ink)}
+.stk-spinner{width:48px;height:48px;border:4px solid var(--line);border-top-color:var(--brand);border-radius:50%;animation:spin .8s linear infinite;margin:10px auto 20px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.stk-btn{width:100%;border:0;border-radius:10px;padding:14px;font:700 1rem var(--sans);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;margin-top:6px}
-.stk-btn.primary{background:var(--brand);color:#fff}
-.stk-btn.primary:hover{background:var(--brand-dark)}
-.stk-btn.ghost{background:#f1f5f9;color:var(--muted);margin-top:10px}
-.stk-btn[disabled]{opacity:.6;cursor:not-allowed}
-.stk-ok-ico{width:64px;height:64px;border-radius:50%;background:#e7f5ef;color:#12a36b;display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:14px}
-.stk-fail-ico{width:64px;height:64px;border-radius:50%;background:#fdecea;color:#c0392b;display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:14px}
-.err-box{background:#111827;color:#ef4444;font-family:monospace;font-size:.75rem;padding:10px;border-radius:6px;text-align:left;margin-top:10px;overflow-x:auto;white-space:pre-wrap;max-height:120px}
+.stk-btn{width:100%;border:0;border-radius:12px;padding:16px;font:700 1rem var(--sans);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;margin-top:8px;transition:all .2s}
+.stk-btn.primary{background:var(--brand);color:#fff;box-shadow:0 4px 15px rgba(215,26,47,.3)}
+.stk-btn.primary:hover{background:var(--brand-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(215,26,47,.4)}
+.stk-btn.ghost{background:transparent;color:var(--muted);margin-top:12px;border:1px solid var(--line)}
+.stk-btn.ghost:hover{background:#f1f5f9;color:var(--ink)}
+.stk-btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
+.stk-ok-ico{width:64px;height:64px;border-radius:50%;background:#e7f5ef;color:#12a36b;display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:16px}
+.stk-fail-ico{width:64px;height:64px;border-radius:50%;background:#fdecea;color:#c0392b;display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:16px}
+.err-box{background:#111827;color:#ef4444;font-family:monospace;font-size:.75rem;padding:12px;border-radius:8px;text-align:left;margin-top:12px;overflow-x:auto;white-space:pre-wrap;max-height:120px}
 </style>
 </head>
 <body>
 <div class="strip">Live and work in Canada</div>
 
 <header>
-  <div class="logo"><div class="mark" id="logoMark">M</div>
-    <div><b id="brandA"></b><small>Skilled immigration assessment</small></div></div>
+  <div class="logo"><div class="mark">M</div>
+    <div><b>MaplePath <span>Canada</span></b><small>Skilled immigration assessment</small></div></div>
   <nav class="menu" id="menu">
     <div class="menu-top"><span>MENU</span><button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">☰</button></div>
     <ul>
-      <li><a href="#" class="lang">Language <b style="color:var(--brand)">EN</b></a></li>
       <li><a href="#top">Home</a></li>
       <li><a class="hot" href="#guide">Immigrate to Canada</a></li>
-      <li><a href="#" data-link="points">Points Calculator</a></li>
-      <li><a href="#" data-link="faq">FAQ</a></li>
-      <li><a href="#" data-link="news">News</a></li>
+      <li><a href="#process">How it works</a></li>
       <li><a href="#guide">Contact Us</a></li>
     </ul>
   </nav>
@@ -127,23 +176,6 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     </div>
   </section>
 
-  <section class="two">
-    <div class="card"><h3>If eligible, you can</h3>
-      <ul class="checks">
-        <li>Live in Canada as a permanent resident</li>
-        <li>Work, study and settle in any province or territory</li>
-        <li>Access public healthcare once provincial rules are met</li>
-        <li>Include eligible family members in your plan</li>
-        <li>Progress toward Canadian citizenship</li>
-      </ul></div>
-    <div class="card" style="margin-top:16px"><h3>You will need</h3>
-      <ul class="checks must">
-        <li>Skilled work experience in an eligible TEER occupation</li>
-        <li>Enough points for the Federal Skilled Worker pass mark, or another Express Entry route</li>
-        <li>Language, education and admissibility documents</li>
-      </ul></div>
-  </section>
-
   <section id="process">
     <div class="kicker">The process</div>
     <h2>Start with your occupation, then confirm your score</h2>
@@ -153,35 +185,72 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
       <div class="step"><i>3</i><div><b>Find ways to improve your score</b><span>Check where language, education, work history or partner factors could help.</span></div></div>
       <div class="step"><i>4</i><div><b>Get your next-steps guide</b><span>Know which documents and forms to prepare before you apply.</span></div></div>
     </div>
-    <a class="btn" href="#guide">Start eligibility assessment</a>
   </section>
 
-  <section id="guide">
+  <section id="guide" style="padding-top:10px;">
     <div class="dark" id="guideBox">
-      <div class="kicker">Eligibility & Guide</div>
+      <div class="kicker" style="color:#fca5a5;">Eligibility & Guide</div>
       <h2>Check your eligibility</h2>
       <p class="lead">Fill in your details below. A small fee unlocks the full 6-step guide, sent straight to your email.</p>
       
       <form id="gform" novalidate>
+        
         <div class="field">
-          <input type="text" id="goccupation" placeholder="Your Job Title (e.g. Software Engineer)" required>
+          <label for="goccupation">Job Title / Occupation</label>
+          <input type="text" id="goccupation" placeholder="e.g. Teacher, Nurse, Driver, Accountant" required>
         </div>
+
         <div class="field">
-          <input type="text" id="gname" placeholder="Your name" autocomplete="name" required>
+          <label for="gcountry">Select Country</label>
+          <select id="gcountry" required>
+            <option value="" disabled selected>-- Choose your country --</option>
+            <option value="KE">Kenya (+254)</option>
+            <option value="UG">Uganda (+256)</option>
+            <option value="TZ">Tanzania (+255)</option>
+            <option value="NG">Nigeria (+234)</option>
+            <option value="ZA">South Africa (+27)</option>
+          </select>
         </div>
+
+        <!-- Transformative Phone Field -->
+        <div class="phone-wrap" id="phoneWrap">
+          <div class="field" style="margin-bottom:0;">
+            <label for="gphone">M-Pesa Phone Number</label>
+            <div class="phone-input-group">
+              <span class="phone-prefix" id="phoneCode">+254</span>
+              <input type="tel" id="gphone" placeholder="712 345 678" autocomplete="tel">
+            </div>
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:16px;">
+          <label for="gname">Full Name</label>
+          <input type="text" id="gname" placeholder="Your full name" autocomplete="name" required>
+        </div>
+
         <div class="field">
-          <input type="email" id="gemail" placeholder="Email address" autocomplete="email" required>
+          <label for="gemail">Email Address</label>
+          <input type="email" id="gemail" placeholder="name@example.com" autocomplete="email" required>
         </div>
-        <div class="field">
-          <input type="tel" id="gphone" placeholder="M-Pesa phone (07XX XXX XXX)" autocomplete="tel" required>
-        </div>
+
         <input class="hp" type="text" id="gweb" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn" type="submit" id="gbtn">Check & Get the Guide</button>
+        
+        <button class="btn" type="submit" id="gbtn" style="margin-top:20px;">Check & Get the Guide</button>
         <div class="msg" id="gmsg" role="status"></div>
       </form>
     </div>
   </section>
 </main>
+
+<footer>
+  <div class="in">
+    <div class="wm">MaplePath <span>Canada</span></div>
+    <p style="font-size:.85rem;line-height:1.6;margin-bottom:20px;">MaplePath Canada is a private information service and is not associated with the Government of Canada. We do not sell or provide visas. Information is general in nature and should not be taken as legal advice.</p>
+    <div class="fgrp"><h4>Start here</h4><a href="#top">Home</a><a href="#guide">Immigrate to Canada</a></div>
+    <div class="fgrp"><h4>Company</h4><a href="#">About Us</a><a href="#">Privacy Policy</a></div>
+    <p style="font-size:.8rem;margin-top:20px;">© 2026 MaplePath Canada Ltd. 150 King Street West, Toronto, ON M5H 1J9, Canada.</p>
+  </div>
+</footer>
 
 <div class="stk-modal" id="stkModal" role="dialog" aria-modal="true">
   <div class="stk-box" id="stkBox"></div>
@@ -191,6 +260,28 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const CONFIG = { guideFee: 250 };
+
+const COUNTRIES = {
+  KE: { code: "254", prefix: "+254", placeholder: "712 345 678" },
+  UG: { code: "256", prefix: "+256", placeholder: "772 345 678" },
+  TZ: { code: "255", prefix: "+255", placeholder: "712 345 678" },
+  NG: { code: "234", prefix: "+234", placeholder: "802 345 6789" },
+  ZA: { code: "27", prefix: "+27", placeholder: "82 345 6789" }
+};
+
+/* ===== Smooth Country -> Phone Logic ===== */
+$("gcountry").addEventListener("change", function() {
+  const cfg = COUNTRIES[this.value];
+  if(!cfg) return;
+  
+  $("phoneCode").textContent = cfg.prefix;
+  $("gphone").placeholder = cfg.placeholder;
+  
+  const wrap = $("phoneWrap");
+  wrap.classList.add("show");
+  
+  setTimeout(() => $("gphone").focus(), 400);
+});
 
 /* ===== STK flow ===== */
 const stkModal = $("stkModal");
@@ -203,32 +294,33 @@ function closeModal(){
 }
 stkModal.addEventListener("click", e => { if(e.target===stkModal) closeModal(); });
 
-function normalizePhone(raw){
+function normalizePhone(raw, countryCode){
   let p = String(raw||'').replace(/\D/g,'');
-  if(p.startsWith('0')) p = '254'+p.slice(1);
-  if(p.length===9 && (p.startsWith('7')||p.startsWith('1'))) p = '254'+p;
-  if(p.length===10 && (p.startsWith('07')||p.startsWith('01'))) p = '254'+p.slice(1);
-  if(!p.startsWith('254')) p = '254'+p;
+  if(p.startsWith('0')) p = countryCode + p.slice(1);
+  if(!p.startsWith(countryCode)) p = countryCode + p;
   return p;
 }
 
-function showConfirm(name, phone, fee, occupation){
+function showConfirm(name, phone, fee, occupation, countryName){
   const display = phone.replace(/^254/, '0').replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3');
   stkBox.innerHTML = `
     <div class="stk-ico">💳</div>
-    <h3 id="stkTitle">Confirm your guide request</h3>
+    <h3 id="stkTitle">Confirm your request</h3>
     <p>Hi ${esc(name)}, a small fee unlocks the full 6-step migration guide.</p>
     <div class="stk-amount">
-      <div class="row"><span>Guide</span><span>How to migrate to Canada</span></div>
       <div class="row"><span>Occupation</span><span>${esc(occupation)}</span></div>
-      <div class="row"><span>M-Pesa number</span><span>${esc(display)}</span></div>
-      <div class="row"><span>Amount</span><span>KSh ${fee.toLocaleString()}</span></div>
+      <div class="row"><span>Country</span><span>${esc(countryName)}</span></div>
+      <div class="row"><span>Phone Number</span><span>${esc(display)}</span></div>
+      <div class="row" style="margin-top:8px;padding-top:12px;border-top:2px solid #e2e8f0;">
+        <span style="color:#111827;font-weight:800;">Total Amount</span>
+        <span style="color:var(--brand);font-size:1.1rem;">KSh ${fee.toLocaleString()}</span>
+      </div>
     </div>
     <button class="stk-btn primary" id="confirmPayBtn">Pay KSh ${fee.toLocaleString()} &amp; get the guide</button>
     <button class="stk-btn ghost" id="cancelPayBtn">Not now</button>
   `;
   stkModal.classList.add("open");
-  $("confirmPayBtn").onclick = () => startStk(name, phone, fee, occupation);
+  $("confirmPayBtn").onclick = () => startStk(name, phone, fee, occupation, countryName);
   $("cancelPayBtn").onclick  = closeModal;
 }
 
@@ -255,7 +347,7 @@ function showSuccess(name, email){
   $("doneBtn").onclick = closeModal;
 }
 
-function showFail(title, message, rawError, name, phone, fee, occupation){
+function showFail(title, message, rawError, name, phone, fee, occupation, countryName){
   const errDetails = rawError ? `<div class="err-box">${esc(JSON.stringify(rawError, null, 2))}</div>` : '';
   stkBox.innerHTML = `
     <div class="stk-fail-ico">✕</div>
@@ -265,8 +357,8 @@ function showFail(title, message, rawError, name, phone, fee, occupation){
     <button class="stk-btn primary" id="retryBtn">Try again</button>
     <button class="stk-btn ghost" id="closeFailBtn">Close</button>
   `;
-  stkModal.classList.add('open');
-  $("retryBtn").onclick     = () => showConfirm(name, phone, fee, occupation);
+  stkModal.classList.add("open");
+  $("retryBtn").onclick     = () => showConfirm(name, phone, fee, occupation, countryName);
   $("closeFailBtn").onclick = closeModal;
 }
 
@@ -285,7 +377,7 @@ async function pollStatus(transactionId, signal){
   return 'timeout';
 }
 
-async function startStk(name, phone, fee, occupation){
+async function startStk(name, phone, fee, occupation, countryName){
   showWaiting(phone, fee);
   abortController = new AbortController();
 
@@ -294,38 +386,32 @@ async function startStk(name, phone, fee, occupation){
     const r = await fetch('/api/pay', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phone, amount: fee, reference, description: 'MaplePath Canada' })
+      body: JSON.stringify({ phone, amount: fee, reference, description: 'MaplePath Guide' })
     });
     
     const data = await r.json();
     
     if (!r.ok || !data.transactionId) {
-      // Show the EXACT error from the backend/Paylor on the screen
-      return showFail(
-        'STK Push Failed', 
-        data.error || 'The server rejected the request.', 
-        data.paylor_details || data, 
-        name, phone, fee, occupation
-      );
+      return showFail('STK Push Failed', data.error || 'The server rejected the request.', data.paylor_details || data, name, phone, fee, occupation, countryName);
     }
 
-    // Successfully sent, now poll
     const result = await pollStatus(data.transactionId, abortController.signal);
 
     if (result === 'success') {
       try { await fetch('/api/guide', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, email: $("gemail").value.trim(), occupation, amount: fee }) }); } catch(_) {}
       showSuccess(name, $("gemail").value.trim());
       $("gform").reset();
+      $("phoneWrap").classList.remove("show");
     } else if (result === 'cancelled') {
-      // user closed modal
+      // closed
     } else if (result === 'failed') {
-      showFail('Payment Declined', 'You cancelled the prompt or entered the wrong PIN.', null, name, phone, fee, occupation);
+      showFail('Payment Declined', 'You cancelled the prompt or entered the wrong PIN.', null, name, phone, fee, occupation, countryName);
     } else {
-      showFail('Timeout', 'We did not receive confirmation in time.', null, name, phone, fee, occupation);
+      showFail('Timeout', 'We did not receive confirmation in time.', null, name, phone, fee, occupation, countryName);
     }
 
   } catch (err) {
-    showFail('Network Error', err.message, err, name, phone, fee, occupation);
+    showFail('Network Error', err.message, err, name, phone, fee, occupation, countryName);
   } finally {
     abortController = null;
   }
@@ -336,20 +422,27 @@ $("gform").addEventListener("submit", async e => {
   e.preventDefault();
   const m = $("gmsg");
   const occ = $("goccupation").value.trim();
+  const countryCode = $("gcountry").value;
   const n  = $("gname").value.trim();
   const em = $("gemail").value.trim();
   const ph = $("gphone").value.trim();
   const show=(t,c)=>{m.textContent=t;m.className="msg "+c;m.style.display="block"};
 
   if(occ.length < 2) return show("Please enter your job title.","bad");
+  if(!countryCode) return show("Please select your country.","bad");
   if(n.length < 2) return show("Enter your name.","bad");
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) return show("Enter a valid email address.","bad");
-  const phone = normalizePhone(ph);
-  if(!/^254[17]\d{8}$/.test(phone)) return show("Enter a valid M-Pesa number (e.g. 0712 345 678).","bad");
+  
+  const cfg = COUNTRIES[countryCode];
+  const phone = normalizePhone(ph, cfg.code);
+  
+  if(phone.length < 10) return show("Enter a valid phone number.","bad");
   if($("gweb").value) return show("Thanks! Check your inbox.","good");
 
+  const countryName = $("gcountry").options[$("gcountry").selectedIndex].text;
+  
   m.style.display = 'none';
-  showConfirm(n, phone, CONFIG.guideFee, occ);
+  showConfirm(n, phone, CONFIG.guideFee, occ, countryName);
 });
 </script>
 </body>
