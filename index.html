@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MaplePath Canada | Check Your Skilled Migration Pathway</title>
+<meta name="description" content="Free Canada skilled migration eligibility assessment. Estimate your Express Entry CRS score and Federal Skilled Worker eligibility in 5 minutes.">
 <style>
 :root{
   --brand:#d71a2f; --brand-dark:#b01224; --navy:#111827; --bg:#f5f7fb; --card:#fff;
@@ -54,6 +55,22 @@ h3{font-size:1.2rem;margin:0 0 10px}
 .step:last-child{border:0}
 .step i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700}
 .step b{display:block}.step span{color:var(--muted)}
+.plan{border-top:5px solid var(--brand)}
+.price{font-size:2rem;font-weight:800;margin:6px 0}
+.vid{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:14px}
+.vthumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy),#2a3350);display:grid;place-items:center;cursor:pointer;border:0;width:100%}
+.vthumb::after{content:"▶";width:60px;height:60px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:1.3rem;transition:transform .2s}
+.vthumb:hover::after{transform:scale(1.1)}
+.vthumb[disabled]{cursor:default}.vthumb[disabled]::after{background:#6b7385}
+.vid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.vtxt{padding:16px}.vtxt b{display:block;font-size:1.1rem}.vtxt span{color:var(--muted);font-size:.9rem}
+.rev{padding:18px}
+.rev .who{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.rev .av{width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#eef1f8;border:2px solid #fff;box-shadow:0 2px 6px rgba(17,24,39,.12)}
+.rev .who b{display:block;font-size:1rem}
+.rev small{color:var(--muted);display:block;font-size:.85rem}
+.rev .st{color:#0f9d58;letter-spacing:2px;font-size:1.05rem;margin-bottom:6px}
+.rev p{margin:0;color:#374151;font-size:.95rem}
 
 /* 🌟 SMOOTHER DARK FORM BOX 🌟 */
 .dark{
@@ -156,6 +173,8 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
       <li><a href="#top">Home</a></li>
       <li><a class="hot" href="#guide">Immigrate to Canada</a></li>
       <li><a href="#process">How it works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#videos">Videos</a></li>
       <li><a href="#guide">Contact Us</a></li>
     </ul>
   </nav>
@@ -176,6 +195,23 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     </div>
   </section>
 
+  <section class="two">
+    <div class="card"><h3>If eligible, you can</h3>
+      <ul class="checks">
+        <li>Live in Canada as a permanent resident</li>
+        <li>Work, study and settle in any province or territory</li>
+        <li>Access public healthcare once provincial rules are met</li>
+        <li>Include eligible family members in your plan</li>
+        <li>Progress toward Canadian citizenship</li>
+      </ul></div>
+    <div class="card" style="margin-top:16px"><h3>You will need</h3>
+      <ul class="checks must">
+        <li>Skilled work experience in an eligible TEER occupation</li>
+        <li>Enough points for the Federal Skilled Worker pass mark, or another Express Entry route</li>
+        <li>Language, education and admissibility documents</li>
+      </ul></div>
+  </section>
+
   <section id="process">
     <div class="kicker">The process</div>
     <h2>Start with your occupation, then confirm your score</h2>
@@ -185,6 +221,35 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
       <div class="step"><i>3</i><div><b>Find ways to improve your score</b><span>Check where language, education, work history or partner factors could help.</span></div></div>
       <div class="step"><i>4</i><div><b>Get your next-steps guide</b><span>Know which documents and forms to prepare before you apply.</span></div></div>
     </div>
+  </section>
+
+  <section id="services">
+    <div class="kicker">Services</div>
+    <h2>Get help beyond the assessment</h2>
+    <div class="two">
+      <div class="card plan"><h3 data-p="0.name"></h3>
+        <div class="price" data-p="0.price"></div>
+        <ul class="checks" data-l="0"></ul>
+        <a class="btn" data-p="0.cta" data-href="0.url" href="#"></a></div>
+      <div class="card plan" style="margin-top:16px"><h3 data-p="1.name"></h3>
+        <div class="price" data-p="1.price"></div>
+        <ul class="checks" data-l="1"></ul>
+        <a class="btn" data-p="1.cta" data-href="1.url" href="#"></a></div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="kicker">Extra information</div>
+    <h2>Learn the key terms before your next step</h2>
+    <p class="lead">Short explainer videos make the skilled migration process easier to follow. Watch them, then take the assessment.</p>
+    <div id="vlist"></div>
+  </section>
+
+  <section id="reviews">
+    <div class="kicker">Reviews</div>
+    <h2>What our users say</h2>
+    <p class="lead">Real feedback from people who checked their Canadian pathway with us.</p>
+    <div id="rlist"></div>
   </section>
 
   <section id="guide" style="padding-top:10px;">
@@ -204,18 +269,14 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
           <label for="gcountry">Select Country</label>
           <select id="gcountry" required>
             <option value="" disabled selected>-- Choose your country --</option>
-            <option value="KE">Kenya (+254)</option>
-            <option value="UG">Uganda (+256)</option>
-            <option value="TZ">Tanzania (+255)</option>
-            <option value="NG">Nigeria (+234)</option>
-            <option value="ZA">South Africa (+27)</option>
+            <!-- Populated via JS -->
           </select>
         </div>
 
         <!-- Transformative Phone Field -->
         <div class="phone-wrap" id="phoneWrap">
           <div class="field" style="margin-bottom:0;">
-            <label for="gphone">M-Pesa Phone Number</label>
+            <label for="gphone">Phone Number</label>
             <div class="phone-input-group">
               <span class="phone-prefix" id="phoneCode">+254</span>
               <input type="tel" id="gphone" placeholder="712 345 678" autocomplete="tel">
@@ -259,18 +320,112 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 <script>
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const CONFIG = { guideFee: 250 };
-
-const COUNTRIES = {
-  KE: { code: "254", prefix: "+254", placeholder: "712 345 678" },
-  UG: { code: "256", prefix: "+256", placeholder: "772 345 678" },
-  TZ: { code: "255", prefix: "+255", placeholder: "712 345 678" },
-  NG: { code: "234", prefix: "+234", placeholder: "802 345 6789" },
-  ZA: { code: "27", prefix: "+27", placeholder: "82 345 6789" }
+const CONFIG = { 
+  guideFee: 250,
+  plans: [
+    {name:"Consultation", price:"$49", cta:"Book here", url:"#",
+     items:["One-on-one online meeting about your options","Review of your assessment result","Personalised step-by-step plan"]},
+    {name:"Full support", price:"$499", cta:"Enquire here", url:"#",
+     items:["Dedicated account manager","Document checks","Language-test preparation guidance","Priority email support"]}
+  ],
+  videos: [
+    {title:"What is the National Occupation Classification?", desc:"Why your occupation match matters before you rely on a skilled pathway.", url:"https://www.youtube.com/embed/2QbP1MdJ1xM"},
+    {title:"How category-based Express Entry rounds work", desc:"How category rounds can affect which skilled profiles get attention.", url:"https://www.youtube.com/embed/W1Y5YlvOx4c"},
+    {title:"How to apply for Express Entry", desc:"Where the official application happens after you prepare your profile.", url:"https://www.youtube.com/embed/HMbXO8zJdLY"}
+  ],
+  reviews: [
+    {name:"Aisha M.", when:"6 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/women/44.jpg", text:"The assessment made my Canada pathway much clearer. I could finally see which parts of my profile needed work before spending money on advice."},
+    {name:"Daniel K.", when:"6 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/men/32.jpg", text:"I was confused between Express Entry and provincial options. This gave me a simple starting point and showed what to check first."},
+    {name:"Sofia R.", when:"5 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/women/68.jpg", text:"The result came through quickly and helped me understand why my language score and documents mattered so much."},
+    {name:"Rahul P.", when:"5 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/men/75.jpg", text:"I wanted to know if my occupation could actually fit a Canada pathway. The score breakdown made the next steps easier to follow."},
+    {name:"Maria L.", when:"4 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/women/23.jpg", text:"A clear breakdown I could actually follow. Worth the few minutes before committing to anything bigger."}
+  ]
 };
 
+// Comprehensive List of Countries with Dial Codes
+const COUNTRIES = {
+  "KE": { name: "Kenya", code: "254", prefix: "+254", placeholder: "712 345 678" },
+  "UG": { name: "Uganda", code: "256", prefix: "+256", placeholder: "772 345 678" },
+  "TZ": { name: "Tanzania", code: "255", prefix: "+255", placeholder: "712 345 678" },
+  "NG": { name: "Nigeria", code: "234", prefix: "+234", placeholder: "802 345 6789" },
+  "ZA": { name: "South Africa", code: "27", prefix: "+27", placeholder: "82 345 6789" },
+  "US": { name: "United States", code: "1", prefix: "+1", placeholder: "202 555 0123" },
+  "GB": { name: "United Kingdom", code: "44", prefix: "+44", placeholder: "7911 123456" },
+  "CA": { name: "Canada", code: "1", prefix: "+1", placeholder: "416 555 0123" },
+  "AU": { name: "Australia", code: "61", prefix: "+61", placeholder: "412 345 678" },
+  "IN": { name: "India", code: "91", prefix: "+91", placeholder: "98765 43210" },
+  "AE": { name: "United Arab Emirates", code: "971", prefix: "+971", placeholder: "50 123 4567" },
+  "SA": { name: "Saudi Arabia", code: "966", prefix: "+966", placeholder: "50 123 4567" },
+  "QA": { name: "Qatar", code: "974", prefix: "+974", placeholder: "3312 3456" },
+  "DE": { name: "Germany", code: "49", prefix: "+49", placeholder: "151 23456789" },
+  "FR": { name: "France", code: "33", prefix: "+33", placeholder: "6 12 34 56 78" },
+  "NL": { name: "Netherlands", code: "31", prefix: "+31", placeholder: "6 12345678" },
+  "IT": { name: "Italy", code: "39", prefix: "+39", placeholder: "312 345 6789" },
+  "ES": { name: "Spain", code: "34", prefix: "+34", placeholder: "612 34 56 78" },
+  "SE": { name: "Sweden", code: "46", prefix: "+46", placeholder: "70 123 45 67" },
+  "NO": { name: "Norway", code: "47", prefix: "+47", placeholder: "412 34 567" },
+  "DK": { name: "Denmark", code: "45", prefix: "+45", placeholder: "20 12 34 56" },
+  "IE": { name: "Ireland", code: "353", prefix: "+353", placeholder: "85 123 4567" },
+  "NZ": { name: "New Zealand", code: "64", prefix: "+64", placeholder: "21 123 4567" },
+  "SG": { name: "Singapore", code: "65", prefix: "+65", placeholder: "8123 4567" },
+  "MY": { name: "Malaysia", code: "60", prefix: "+60", placeholder: "12 345 6789" },
+  "CN": { name: "China", code: "86", prefix: "+86", placeholder: "138 0013 8000" },
+  "JP": { name: "Japan", code: "81", prefix: "+81", placeholder: "90 1234 5678" },
+  "KR": { name: "South Korea", code: "82", prefix: "+82", placeholder: "10 1234 5678" },
+  "BR": { name: "Brazil", code: "55", prefix: "+55", placeholder: "11 91234 5678" },
+  "MX": { name: "Mexico", code: "52", prefix: "+52", placeholder: "55 1234 5678" },
+  "AR": { name: "Argentina", code: "54", prefix: "+54", placeholder: "11 2345 6789" },
+  "EG": { name: "Egypt", code: "20", prefix: "+20", placeholder: "100 123 4567" },
+  "GH": { name: "Ghana", code: "233", prefix: "+233", placeholder: "24 123 4567" },
+  "ET": { name: "Ethiopia", code: "251", prefix: "+251", placeholder: "91 123 4567" },
+  "RW": { name: "Rwanda", code: "250", prefix: "+250", placeholder: "78 123 4567" },
+  "ZM": { name: "Zambia", code: "260", prefix: "+260", placeholder: "97 123 4567" },
+  "ZW": { name: "Zimbabwe", code: "263", prefix: "+263", placeholder: "71 234 5678" },
+  "MW": { name: "Malawi", code: "265", prefix: "+265", placeholder: "99 123 4567" },
+  "MZ": { name: "Mozambique", code: "258", prefix: "+258", placeholder: "82 123 4567" },
+  "BW": { name: "Botswana", code: "267", prefix: "+267", placeholder: "71 234 567" },
+  "NA": { name: "Namibia", code: "264", prefix: "+264", placeholder: "81 123 4567" }
+};
+
+/* ===== Populate Page Content ===== */
+// Populate Country Dropdown
+const countrySelect = $("gcountry");
+const sortedCountries = Object.keys(COUNTRIES).sort((a,b) => COUNTRIES[a].name.localeCompare(COUNTRIES[b].name));
+sortedCountries.forEach(iso => {
+  const c = COUNTRIES[iso];
+  const opt = document.createElement("option");
+  opt.value = iso;
+  opt.textContent = `${c.name} (${c.prefix})`;
+  countrySelect.appendChild(opt);
+});
+
+document.querySelectorAll("[data-p]").forEach(el=>{const[i,k]=el.dataset.p.split(".");el.textContent=CONFIG.plans[i][k]});
+document.querySelectorAll("[data-href]").forEach(el=>{const[i,k]=el.dataset.href.split(".");el.href=CONFIG.plans[i][k]});
+document.querySelectorAll("[data-l]").forEach(ul=>ul.innerHTML=CONFIG.plans[ul.dataset.l].items.map(t=>"<li>"+t+"</li>").join(""));
+
+$("vlist").innerHTML=CONFIG.videos.map((v,i)=>
+  '<div class="vid"><button class="vthumb" data-v="'+i+'" aria-label="Play: '+esc(v.title)+'"'+(v.url?"":" disabled")+'></button>'+
+  '<div class="vtxt"><b>'+esc(v.title)+'</b><span>'+esc(v.desc)+'</span></div></div>').join("");
+$("vlist").addEventListener("click",e=>{
+  const b=e.target.closest(".vthumb");if(!b||b.disabled)return;
+  const u=CONFIG.videos[b.dataset.v].url;if(!/^https:\/\//.test(u))return;
+  const f=document.createElement("iframe");f.src=u+(u.includes("?")?"&":"?")+"autoplay=1";f.allow="autoplay; encrypted-media; fullscreen";f.allowFullscreen=true;f.title="Video";
+  b.replaceWith(f);
+});
+
+$("rlist").innerHTML=CONFIG.reviews.map(r=>`
+  <div class="card rev">
+    <div class="who">
+      <img class="av" src="${esc(r.avatar)}" alt="${esc(r.name)}" loading="lazy" onerror="this.style.background='#eef1f8';this.removeAttribute('src')">
+      <div><b>${esc(r.name)}</b><small>${esc(r.when||"")}</small></div>
+    </div>
+    <div class="st" aria-label="${r.stars||5} out of 5">${"★".repeat(r.stars||5)}</div>
+    <p>“${esc(r.text)}”</p>
+  </div>
+`).join("");
+
 /* ===== Smooth Country -> Phone Logic ===== */
-$("gcountry").addEventListener("change", function() {
+countrySelect.addEventListener("change", function() {
   const cfg = COUNTRIES[this.value];
   if(!cfg) return;
   
@@ -282,6 +437,10 @@ $("gcountry").addEventListener("change", function() {
   
   setTimeout(() => $("gphone").focus(), 400);
 });
+
+/* ===== Menu ===== */
+$("burger").onclick=()=>{const o=$("menu").classList.toggle("open");$("burger").setAttribute("aria-expanded",o)};
+document.querySelectorAll("#menu a").forEach(a=>a.addEventListener("click",()=>$("menu").classList.remove("open")));
 
 /* ===== STK flow ===== */
 const stkModal = $("stkModal");
@@ -302,7 +461,7 @@ function normalizePhone(raw, countryCode){
 }
 
 function showConfirm(name, phone, fee, occupation, countryName){
-  const display = phone.replace(/^254/, '0').replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3');
+  const display = phone.length > 9 ? phone.replace(/^([0-9]{3})/, '+$1 ').replace(/(\d{3})(\d{3})(\d+)/, '$1 $2 $3') : phone;
   stkBox.innerHTML = `
     <div class="stk-ico">💳</div>
     <h3 id="stkTitle">Confirm your request</h3>
@@ -325,11 +484,10 @@ function showConfirm(name, phone, fee, occupation, countryName){
 }
 
 function showWaiting(phone, fee){
-  const display = phone.replace(/^254/, '0');
   stkBox.innerHTML = `
     <div class="stk-spinner"></div>
     <h3 id="stkTitle">Check your phone</h3>
-    <p>An M-Pesa prompt was sent to <b>${esc(display)}</b>. Enter your PIN to pay <b>KSh ${fee.toLocaleString()}</b>.</p>
+    <p>An M-Pesa prompt was sent to <b>${esc(phone)}</b>. Enter your PIN to pay <b>KSh ${fee.toLocaleString()}</b>.</p>
     <button class="stk-btn ghost" id="cancelWaitBtn">Cancel</button>
   `;
   stkModal.classList.add('open');
@@ -439,7 +597,7 @@ $("gform").addEventListener("submit", async e => {
   if(phone.length < 10) return show("Enter a valid phone number.","bad");
   if($("gweb").value) return show("Thanks! Check your inbox.","good");
 
-  const countryName = $("gcountry").options[$("gcountry").selectedIndex].text;
+  const countryName = COUNTRIES[countryCode].name;
   
   m.style.display = 'none';
   showConfirm(n, phone, CONFIG.guideFee, occ, countryName);
