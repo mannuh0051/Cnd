@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   // 🔴 HARDCODED DIRECTLY FROM YOUR MESSAGE 🔴
   const apiKey = "pk_-phQ7tCvHCXPmMbvk1xFxNAyLnbkmgFM"; 
-  const channelId = "PAYL-4SGHZQ";
+  const channelId = "PAYL-3WZA62";
 
   // --- INITIATE STK PUSH ---
   if (req.method === 'POST') {
