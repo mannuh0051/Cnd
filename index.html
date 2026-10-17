@@ -55,8 +55,6 @@ h3{font-size:1.2rem;margin:0 0 10px}
 .plan{border-top:5px solid var(--brand)}
 .price{font-size:2rem;font-weight:800;margin:6px 0}
 .dark{background:var(--navy);color:#e5e9f2;border-radius:var(--r);padding:24px;border:2px solid transparent;transition:border-color .3s}
-.dark.highlight{border-color:var(--brand);animation:pulse 1.2s ease 2}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(215,26,47,.35)}50%{box-shadow:0 0 0 12px rgba(215,26,47,0)}}
 .dark h2{color:#fff}.dark .lead{color:#b9c1d1}
 .field{margin-bottom:12px}
 input[type=text],input[type=email],input[type=tel],select{width:100%;padding:15px;border:1px solid #b9c1d1;border-radius:10px;font:inherit;background:#fff}
@@ -84,27 +82,9 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 .fgrp h4{margin:0 0 8px;color:#8b95ab;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
 .fgrp a{display:flex;justify-content:space-between;color:#fff;text-decoration:none;font-weight:600;padding:10px 0}
 .fgrp a::after{content:"→";color:#8b95ab}
-
-/* Occupations as radios */
-.occ-fieldset{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 14px;background:#fff}
-.occ-fieldset legend{font:700 .78rem var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:20px;color:#fff}
-.occ-fieldset.leg1 legend{background:#0f7b5f}
-.occ-fieldset.leg2 legend{background:#1d4ed8}
-.occ-fieldset.leg3 legend{background:#b45309}
-.occ-radio{display:flex;gap:12px;align-items:flex-start;padding:10px 8px;border-radius:8px;cursor:pointer;transition:background .15s}
-.occ-radio:hover{background:#f8fafc}
-.occ-radio input[type=radio]{margin-top:5px;width:18px;height:18px;accent-color:var(--brand);flex-shrink:0;cursor:pointer}
-.occ-radio .meta{min-width:0;flex:1}
-.occ-radio b{display:block;font-size:.97rem;font-weight:600;line-height:1.3}
-.occ-radio small{color:var(--muted);font-size:.82rem}
-.occ-radio input:checked ~ .meta b{color:var(--brand)}
-.occ-radio:has(input:checked){background:#fff3f4}
-.occ-hint{background:#fff3f4;border:1px solid #f5c6c2;color:var(--brand);padding:12px 14px;border-radius:10px;font-size:.9rem;font-weight:600;margin-top:8px;display:none;align-items:center;gap:8px}
-.occ-hint.show{display:flex}
-
 @media(min-width:700px){.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.two .card{margin:0}}
 
-/* STK modal (unchanged) */
+/* STK modal */
 .stk-modal{position:fixed;inset:0;background:rgba(17,24,39,.65);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
 .stk-modal.open{display:flex}
 .stk-box{background:#fff;border-radius:16px;padding:26px 22px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:stkIn .25s ease}
@@ -138,8 +118,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     <ul>
       <li><a href="#" class="lang">Language <b style="color:var(--brand)">EN</b></a></li>
       <li><a href="#top">Home</a></li>
-      <li><a class="hot" data-assess href="#">Immigrate to Canada</a></li>
-      <li><a href="#occupations">Occupations</a></li>
+      <li><a class="hot" href="#guide">Immigrate to Canada</a></li>
       <li><a href="#" data-link="points">Points Calculator</a></li>
       <li><a href="#" data-link="faq">FAQ</a></li>
       <li><a href="#" data-link="news">News</a></li>
@@ -154,7 +133,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     <div class="kicker">Canada skilled migration assessment</div>
     <h1>Check your pathway to Canadian permanent residence</h1>
     <p class="lead">Take a guided assessment covering Federal Skilled Worker, Express Entry and CRS competitiveness, then get practical next steps for your profile.</p>
-    <a class="btn" href="#occupations">Start eligibility assessment</a>
+    <a class="btn" href="#guide">Start eligibility assessment</a>
     <a class="btn ghost" href="#process">See how it works</a>
     <div class="stats">
       <div class="stat">5 min<small>assessment</small></div>
@@ -181,31 +160,6 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
       </ul></div>
   </section>
 
-  <section id="occupations">
-    <div class="kicker">Step 1 · Occupations</div>
-    <h2>Select your closest occupation</h2>
-    <p class="lead">Pick the option that best matches your work experience. Once you select one, we'll take you to the form.</p>
-
-    <form id="occForm">
-      <fieldset class="occ-fieldset leg1">
-        <legend>TEER 1 · University degree</legend>
-        <div id="occTeer1"></div>
-      </fieldset>
-      <fieldset class="occ-fieldset leg2">
-        <legend>TEER 2 · Diploma or apprenticeship</legend>
-        <div id="occTeer2"></div>
-      </fieldset>
-      <fieldset class="occ-fieldset leg3">
-        <legend>TEER 3 · Certificate or training</legend>
-        <div id="occTeer3"></div>
-      </fieldset>
-    </form>
-
-    <div class="occ-hint" id="occHint">
-      <span>✓</span><span id="occHintText">Occupation selected — scrolling to the form…</span>
-    </div>
-  </section>
-
   <section id="process">
     <div class="kicker">The process</div>
     <h2>Start with your occupation, then confirm your score</h2>
@@ -215,6 +169,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
       <div class="step"><i>3</i><div><b>Find ways to improve your score</b><span>Check where language, education, work history or partner factors could help.</span></div></div>
       <div class="step"><i>4</i><div><b>Get your next-steps guide</b><span>Know which documents and forms to prepare before you apply.</span></div></div>
     </div>
+    <a class="btn" href="#guide">Start eligibility assessment</a>
   </section>
 
   <section>
@@ -246,6 +201,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     <h2>Learn the key terms before your next step</h2>
     <p class="lead">Short explainer videos make the skilled migration process easier to follow. Watch them, then take the assessment.</p>
     <div id="vlist"></div>
+    <a class="btn" href="#guide">Check your eligibility</a>
   </section>
 
   <section id="reviews">
@@ -253,22 +209,30 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     <h2>What our users say</h2>
     <p class="lead">Real feedback from people who checked their Canadian pathway with us.</p>
     <div id="rlist"></div>
+    <a class="btn" href="#guide">Start eligibility assessment</a>
   </section>
 
   <section id="guide">
     <div class="dark" id="guideBox">
-      <div class="kicker">Step 2 · Your details</div>
-      <h2>Get the migration guide</h2>
-      <p class="lead">Enter your details below. A small fee unlocks the full 6-step guide, sent straight to your email.</p>
-      <div id="chosenOcc" class="occ-hint" style="background:#0f4c4a;border-color:#0f4c4a;color:#fff;margin-bottom:14px;display:none;">
-        <span>✓</span><span id="chosenOccText"></span>
-      </div>
+      <div class="kicker">Eligibility & Guide</div>
+      <h2>Check your eligibility</h2>
+      <p class="lead">Fill in your details below. A small fee unlocks the full 6-step guide, sent straight to your email.</p>
+      
       <form id="gform" novalidate>
-        <div class="field"><input type="text" id="gname" placeholder="Your name" autocomplete="name" aria-label="Your name"></div>
-        <div class="field"><input type="email" id="gemail" placeholder="Email address" autocomplete="email" aria-label="Email address"></div>
-        <div class="field"><input type="tel" id="gphone" placeholder="M-Pesa phone (07XX XXX XXX)" autocomplete="tel" aria-label="M-Pesa phone"></div>
+        <div class="field">
+          <input type="text" id="goccupation" placeholder="Your Job Title (e.g. Software Engineer)" required>
+        </div>
+        <div class="field">
+          <input type="text" id="gname" placeholder="Your name" autocomplete="name" aria-label="Your name" required>
+        </div>
+        <div class="field">
+          <input type="email" id="gemail" placeholder="Email address" autocomplete="email" aria-label="Email address" required>
+        </div>
+        <div class="field">
+          <input type="tel" id="gphone" placeholder="M-Pesa phone (07XX XXX XXX)" autocomplete="tel" aria-label="M-Pesa phone" required>
+        </div>
         <input class="hp" type="text" id="gweb" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn" type="submit" id="gbtn">Send me the guide</button>
+        <button class="btn" type="submit" id="gbtn">Check & Get the Guide</button>
         <div class="msg" id="gmsg" role="status"></div>
       </form>
     </div>
@@ -279,8 +243,8 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
   <div class="in">
     <div class="wm" id="brandB"></div>
     <p id="disc"></p>
-    <div class="fgrp"><h4>Start here</h4><a href="#top">Home</a><a href="#occupations">Occupations</a><a href="#guide">Eligibility Assessment</a></div>
-    <div class="fgrp"><h4>Tools</h4><a href="#occupations">Occupations</a><a href="#" data-link="points">Points Calculator</a><a href="#" data-link="news">News</a></div>
+    <div class="fgrp"><h4>Start here</h4><a href="#top">Home</a><a href="#guide">Immigrate to Canada</a><a href="#guide">Eligibility Assessment</a></div>
+    <div class="fgrp"><h4>Tools</h4><a href="#" data-link="points">Points Calculator</a><a href="#" data-link="news">News</a></div>
     <div class="fgrp"><h4>Support</h4><a href="#" data-link="subscription">Manage Subscription</a><a href="#" data-link="faq">FAQ</a><a href="#guide">Contact Us</a></div>
     <div class="fgrp"><h4>Company</h4><a href="#" data-link="about">About Us</a><a href="#" data-link="terms">Terms of Service</a><a href="#" data-link="privacy">Privacy Policy</a></div>
     <p id="company"></p>
@@ -295,7 +259,6 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 /* ===== CONFIG ===== */
 const CONFIG = {
   brand: ["MaplePath", "Canada"],
-  assessmentUrl: "#occupations",
   endpoint: "/api/guide",
   guideFee: 250,
   company: "© 2026 MaplePath Canada Ltd. 150 King Street West, Toronto, ON M5H 1J9, Canada.",
@@ -317,32 +280,6 @@ const CONFIG = {
      items:["One-on-one online meeting about your options","Review of your assessment result","Personalised step-by-step plan"]},
     {name:"Full support", price:"$499", cta:"Enquire here", url:"#",
      items:["Dedicated account manager","Document checks","Language-test preparation guidance","Priority email support"]}
-  ],
-  occupations: [
-    {title:"Software engineers and designers", noc:"21231", teer:1, sector:"Information technology"},
-    {title:"Registered nurses and registered psychiatric nurses", noc:"31301", teer:1, sector:"Healthcare"},
-    {title:"Financial auditors and accountants", noc:"11100", teer:1, sector:"Finance"},
-    {title:"Civil engineers", noc:"21300", teer:1, sector:"Engineering"},
-    {title:"General practitioners and family physicians", noc:"31102", teer:1, sector:"Healthcare"},
-    {title:"Secondary school teachers", noc:"41220", teer:1, sector:"Education"},
-    {title:"Pharmacists", noc:"31120", teer:1, sector:"Healthcare"},
-    {title:"Financial analysts and investment analysts", noc:"11101", teer:1, sector:"Finance"},
-    {title:"Database analysts and data administrators", noc:"21223", teer:1, sector:"Information technology"},
-    {title:"Human resources professionals", noc:"11200", teer:1, sector:"Business"},
-    {title:"Electricians (except industrial and power system)", noc:"72200", teer:2, sector:"Trades"},
-    {title:"Welders and related machine operators", noc:"72106", teer:2, sector:"Trades"},
-    {title:"Carpenters", noc:"72310", teer:2, sector:"Trades"},
-    {title:"Chefs", noc:"62200", teer:2, sector:"Hospitality"},
-    {title:"Dental hygienists and dental therapists", noc:"32111", teer:2, sector:"Healthcare"},
-    {title:"Retail and wholesale trade managers", noc:"60020", teer:2, sector:"Retail"},
-    {title:"Heavy-duty equipment mechanics", noc:"72401", teer:2, sector:"Trades"},
-    {title:"Medical technologists and technicians", noc:"32120", teer:2, sector:"Healthcare"},
-    {title:"Truck drivers", noc:"73300", teer:3, sector:"Transport"},
-    {title:"Heavy equipment operators (except crane)", noc:"73400", teer:3, sector:"Construction"},
-    {title:"Administrative assistants", noc:"13110", teer:3, sector:"Business"},
-    {title:"Cooks", noc:"63200", teer:3, sector:"Hospitality"},
-    {title:"Retail sales supervisors", noc:"62010", teer:3, sector:"Retail"},
-    {title:"Long-haul truck drivers", noc:"73300", teer:3, sector:"Transport"}
   ]
 };
 
@@ -351,67 +288,13 @@ $("brandA").innerHTML=$("brandB").innerHTML=CONFIG.brand[0]+" <span>"+CONFIG.bra
 $("logoMark").textContent=CONFIG.brand[0][0];
 $("disc").textContent=CONFIG.brand.join(" ")+" is a private information service and is not associated with the Government of Canada. We do not sell or provide visas. Information is general in nature and should not be taken as legal advice.";
 $("company").textContent=CONFIG.company;
-document.querySelectorAll("[data-assess]").forEach(a=>a.href=CONFIG.assessmentUrl);
+
 document.querySelectorAll("[data-p]").forEach(el=>{const[i,k]=el.dataset.p.split(".");el.textContent=CONFIG.plans[i][k]});
 document.querySelectorAll("[data-href]").forEach(el=>{const[i,k]=el.dataset.href.split(".");el.href=CONFIG.plans[i][k]});
 document.querySelectorAll("[data-l]").forEach(ul=>ul.innerHTML=CONFIG.plans[ul.dataset.l].items.map(t=>"<li>"+t+"</li>").join(""));
+
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 document.querySelectorAll("[data-link]").forEach(a=>a.href=CONFIG.links[a.dataset.link]||"#");
-
-/* ===== Occupations as radios ===== */
-function renderOccupations(){
-  [1,2,3].forEach(teer=>{
-    const container = $("occTeer"+teer);
-    const list = CONFIG.occupations.filter(o=>o.teer===teer);
-    container.innerHTML = list.map(o=>`
-      <label class="occ-radio">
-        <input type="radio" name="occupation" value="${esc(o.noc)}|${esc(o.title)}|${o.teer}">
-        <span class="meta">
-          <b>${esc(o.title)}</b>
-          <small>NOC ${esc(o.noc)}${o.sector?' · '+esc(o.sector):''}</small>
-        </span>
-      </label>
-    `).join("");
-  });
-}
-renderOccupations();
-
-function getSelectedOccupation(){
-  const r = document.querySelector('input[name="occupation"]:checked');
-  if(!r) return null;
-  const [noc,title,teer] = r.value.split('|');
-  return {noc,title,teer:Number(teer)};
-}
-
-/* ===== When a radio is chosen: show hint, scroll to form, highlight it ===== */
-document.querySelectorAll('input[name="occupation"]').forEach(r=>{
-  r.addEventListener('change', () => {
-    const occ = getSelectedOccupation();
-    if(!occ) return;
-
-    // 1. Show the "selected" hint
-    $("occHintText").textContent = `Selected: ${occ.title} (NOC ${occ.noc}) — scrolling to the form…`;
-    $("occHint").classList.add("show");
-
-    // 2. Update the confirmation badge inside the form
-    $("chosenOccText").textContent = `Selected occupation: ${occ.title} (NOC ${occ.noc})`;
-    $("chosenOcc").style.display = "flex";
-
-    // 3. Scroll to the form
-    setTimeout(() => {
-      const target = $("guide");
-      const y = target.getBoundingClientRect().top + window.scrollY - 60;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }, 300);
-
-    // 4. Flash the form box
-    setTimeout(() => {
-      $("guideBox").classList.add("highlight");
-      setTimeout(() => $("guideBox").classList.remove("highlight"), 2600);
-      $("gname").focus({ preventScroll: true });
-    }, 900);
-  });
-});
 
 /* ===== Videos ===== */
 $("vlist").innerHTML=CONFIG.videos.map((v,i)=>
@@ -464,9 +347,6 @@ function normalizePhone(raw){
 
 function showConfirm(name, phone, fee, occupation){
   const display = phone.replace(/^254/, '0').replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3');
-  const occLine = occupation
-    ? `<div class="row"><span>Occupation</span><span>${esc(occupation.title)} (NOC ${esc(occupation.noc)})</span></div>`
-    : '';
   stkBox.innerHTML = `
     <div class="stk-ico">💳</div>
     <h3 id="stkTitle">Confirm your guide request</h3>
@@ -474,7 +354,7 @@ function showConfirm(name, phone, fee, occupation){
     <div class="stk-amount">
       <div class="row"><span>Guide</span><span>How to migrate to Canada in 6 steps</span></div>
       <div class="row"><span>Delivery</span><span>Email (PDF)</span></div>
-      ${occLine}
+      <div class="row"><span>Occupation</span><span>${esc(occupation)}</span></div>
       <div class="row"><span>M-Pesa number</span><span>${esc(display)}</span></div>
       <div class="row"><span>Amount</span><span>KSh ${fee.toLocaleString()}</span></div>
     </div>
@@ -567,9 +447,7 @@ async function startStk(name, phone, fee, occupation){
             type: 'paid_guide',
             name, phone,
             email: $("gemail").value.trim(),
-            occupation: occupation ? occupation.title : null,
-            noc: occupation ? occupation.noc : null,
-            teer: occupation ? occupation.teer : null,
+            occupation: occupation,
             transactionId: data.transactionId,
             reference, amount: fee,
             submittedAt: new Date().toISOString()
@@ -578,9 +456,6 @@ async function startStk(name, phone, fee, occupation){
       } catch(_) {}
       showSuccess(name, $("gemail").value.trim());
       $("gform").reset();
-      document.querySelectorAll('input[name="occupation"]').forEach(r=>r.checked=false);
-      $("occHint").classList.remove("show");
-      $("chosenOcc").style.display = "none";
     } else if (result === 'cancelled') {
       /* user closed modal */
     } else if (result === 'failed') {
@@ -599,20 +474,21 @@ async function startStk(name, phone, fee, occupation){
 $("gform").addEventListener("submit", async e => {
   e.preventDefault();
   const m = $("gmsg");
+  const occ = $("goccupation").value.trim();
   const n  = $("gname").value.trim();
   const em = $("gemail").value.trim();
   const ph = $("gphone").value.trim();
   const show=(t,c)=>{m.textContent=t;m.className="msg "+c;m.style.display="block"};
 
-  if(!getSelectedOccupation()) return show("Please select your occupation above first.","bad");
-  if(n.length<2) return show("Enter your name.","bad");
+  if(occ.length < 2) return show("Please enter your job title.","bad");
+  if(n.length < 2) return show("Enter your name.","bad");
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) return show("Enter a valid email address.","bad");
   const phone = normalizePhone(ph);
   if(!/^254[17]\d{8}$/.test(phone)) return show("Enter a valid M-Pesa number (e.g. 0712 345 678).","bad");
   if($("gweb").value) return show("Thanks! Check your inbox.","good");
 
   m.style.display = 'none';
-  showConfirm(n, phone, CONFIG.guideFee, getSelectedOccupation());
+  showConfirm(n, phone, CONFIG.guideFee, occ);
 });
 </script>
 </body>
