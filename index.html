@@ -294,9 +294,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
           <input type="email" id="gemail" placeholder="name@example.com" autocomplete="email" required>
         </div>
 
-        <input class="hp" type="text" id="gweb" tabindex="-1" autocomplete="off" aria-hidden="true">
-        
-        <button class="btn" type="submit" id="gbtn" style="margin-top:20px;">Check & Get the Guide</button>
+        <button class="btn" type="submit" id="gbtn" style="margin-top:20px;">Proceed to Payment</button>
         <div class="msg" id="gmsg" role="status"></div>
       </form>
     </div>
@@ -313,7 +311,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
   </div>
 </footer>
 
-<!-- PAYMENT MODAL IS HERE -->
+<!-- PAYMENT MODAL -->
 <div class="stk-modal" id="stkModal" role="dialog" aria-modal="true">
   <div class="stk-box" id="stkBox"></div>
 </div>
@@ -585,6 +583,7 @@ $("gform").addEventListener("submit", async e => {
   const n  = $("gname").value.trim();
   const em = $("gemail").value.trim();
   const ph = $("gphone").value.trim();
+  
   const show=(t,c)=>{m.textContent=t;m.className="msg "+c;m.style.display="block"};
 
   if(occ.length < 2) return show("Please enter your job title.","bad");
@@ -596,11 +595,11 @@ $("gform").addEventListener("submit", async e => {
   const phone = normalizePhone(ph, cfg.code);
   
   if(phone.length < 10) return show("Enter a valid phone number.","bad");
-  if($("gweb").value) return show("Thanks! Check your inbox.","good");
 
   const countryName = COUNTRIES[countryCode].name;
   
   m.style.display = 'none';
+  // THIS OPENS THE PAYMENT MODAL
   showConfirm(n, phone, CONFIG.guideFee, occ, countryName);
 });
 </script>
