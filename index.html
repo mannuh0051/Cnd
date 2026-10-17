@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MaplePath Canada | Check Your Skilled Migration Pathway</title>
-<meta name="description" content="Free Canada skilled migration eligibility assessment. Estimate your Express Entry CRS score and Federal Skilled Worker eligibility in 5 minutes.">
 <style>
 :root{
   --brand:#d71a2f; --brand-dark:#b01224; --navy:#111827; --bg:#f5f7fb; --card:#fff;
@@ -63,21 +62,6 @@ input[type=text],input[type=email],input[type=tel],select{width:100%;padding:15p
 footer{background:var(--navy);color:#b9c1d1;margin-top:30px;padding:36px 16px}
 footer .in{max-width:720px;margin:auto}
 footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;letter-spacing:.04em}footer .wm span{color:var(--brand)}
-.foot-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0;padding:0;list-style:none}
-.foot-links a{color:#fff;text-decoration:none;font-weight:600}
-.vid{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:14px}
-.vthumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy),#2a3350);display:grid;place-items:center;cursor:pointer;border:0;width:100%}
-.vthumb::after{content:"▶";width:60px;height:60px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:1.3rem}
-.vthumb[disabled]{cursor:default}.vthumb[disabled]::after{background:#6b7385}
-.vid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
-.vtxt{padding:16px}.vtxt b{display:block;font-size:1.1rem}.vtxt span{color:var(--muted)}
-.rev{padding:18px}
-.rev .who{display:flex;gap:12px;align-items:center;margin-bottom:10px}
-.rev .av{width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#eef1f8;border:2px solid #fff;box-shadow:0 2px 6px rgba(17,24,39,.12)}
-.rev .who b{display:block;font-size:1rem}
-.rev small{color:var(--muted);display:block;font-size:.85rem}
-.rev .st{color:#0f9d58;letter-spacing:2px;font-size:1.05rem;margin-bottom:6px}
-.rev p{margin:0;color:#374151}
 .fgrp{border:1px solid #2a3350;border-radius:var(--r);padding:16px 18px;margin-bottom:12px}
 .fgrp h4{margin:0 0 8px;color:#8b95ab;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
 .fgrp a{display:flex;justify-content:space-between;color:#fff;text-decoration:none;font-weight:600;padding:10px 0}
@@ -105,6 +89,7 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
 .stk-btn[disabled]{opacity:.6;cursor:not-allowed}
 .stk-ok-ico{width:64px;height:64px;border-radius:50%;background:#e7f5ef;color:#12a36b;display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:14px}
 .stk-fail-ico{width:64px;height:64px;border-radius:50%;background:#fdecea;color:#c0392b;display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:14px}
+.err-box{background:#111827;color:#ef4444;font-family:monospace;font-size:.75rem;padding:10px;border-radius:6px;text-align:left;margin-top:10px;overflow-x:auto;white-space:pre-wrap;max-height:120px}
 </style>
 </head>
 <body>
@@ -123,7 +108,6 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
       <li><a href="#" data-link="faq">FAQ</a></li>
       <li><a href="#" data-link="news">News</a></li>
       <li><a href="#guide">Contact Us</a></li>
-      <li><a href="#" data-link="login">Login</a></li>
     </ul>
   </nav>
 </header>
@@ -172,46 +156,6 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
     <a class="btn" href="#guide">Start eligibility assessment</a>
   </section>
 
-  <section>
-    <div class="kicker">About the skilled program</div>
-    <h2>Points-based and ranked</h2>
-    <p>Canadian skilled migration is points-tested. Your assessment gives an indicative Federal Skilled Worker result and an Express Entry CRS estimate from your answers. If you don't meet the minimums yet, you may need to build your profile first. If your score is competitive, it's worth exploring your options further.</p>
-    <p>Any real application needs evidence for every claim you make, so keep your documents ready.</p>
-    <div class="card"><h3>How long you can stay</h3><p style="margin:0">Permanent residence has no fixed end date, as long as you meet residency obligations and follow Canadian law.</p></div>
-    <div class="card"><h3>Including family</h3><p style="margin:0">Eligible family members, such as a spouse or partner and dependent children, may be included in your plan.</p></div>
-  </section>
-
-  <section id="services">
-    <div class="kicker">Services</div>
-    <h2>Get help beyond the assessment</h2>
-    <div class="two">
-      <div class="card plan"><h3 data-p="0.name"></h3>
-        <div class="price" data-p="0.price"></div>
-        <ul class="checks" data-l="0"></ul>
-        <a class="btn" data-p="0.cta" data-href="0.url" href="#"></a></div>
-      <div class="card plan" style="margin-top:16px"><h3 data-p="1.name"></h3>
-        <div class="price" data-p="1.price"></div>
-        <ul class="checks" data-l="1"></ul>
-        <a class="btn" data-p="1.cta" data-href="1.url" href="#"></a></div>
-    </div>
-  </section>
-
-  <section id="videos">
-    <div class="kicker">Extra information</div>
-    <h2>Learn the key terms before your next step</h2>
-    <p class="lead">Short explainer videos make the skilled migration process easier to follow. Watch them, then take the assessment.</p>
-    <div id="vlist"></div>
-    <a class="btn" href="#guide">Check your eligibility</a>
-  </section>
-
-  <section id="reviews">
-    <div class="kicker">Reviews</div>
-    <h2>What our users say</h2>
-    <p class="lead">Real feedback from people who checked their Canadian pathway with us.</p>
-    <div id="rlist"></div>
-    <a class="btn" href="#guide">Start eligibility assessment</a>
-  </section>
-
   <section id="guide">
     <div class="dark" id="guideBox">
       <div class="kicker">Eligibility & Guide</div>
@@ -223,13 +167,13 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
           <input type="text" id="goccupation" placeholder="Your Job Title (e.g. Software Engineer)" required>
         </div>
         <div class="field">
-          <input type="text" id="gname" placeholder="Your name" autocomplete="name" aria-label="Your name" required>
+          <input type="text" id="gname" placeholder="Your name" autocomplete="name" required>
         </div>
         <div class="field">
-          <input type="email" id="gemail" placeholder="Email address" autocomplete="email" aria-label="Email address" required>
+          <input type="email" id="gemail" placeholder="Email address" autocomplete="email" required>
         </div>
         <div class="field">
-          <input type="tel" id="gphone" placeholder="M-Pesa phone (07XX XXX XXX)" autocomplete="tel" aria-label="M-Pesa phone" required>
+          <input type="tel" id="gphone" placeholder="M-Pesa phone (07XX XXX XXX)" autocomplete="tel" required>
         </div>
         <input class="hp" type="text" id="gweb" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn" type="submit" id="gbtn">Check & Get the Guide</button>
@@ -239,91 +183,14 @@ footer .wm{font:700 1.3rem var(--serif);color:#fff;text-transform:uppercase;lett
   </section>
 </main>
 
-<footer>
-  <div class="in">
-    <div class="wm" id="brandB"></div>
-    <p id="disc"></p>
-    <div class="fgrp"><h4>Start here</h4><a href="#top">Home</a><a href="#guide">Immigrate to Canada</a><a href="#guide">Eligibility Assessment</a></div>
-    <div class="fgrp"><h4>Tools</h4><a href="#" data-link="points">Points Calculator</a><a href="#" data-link="news">News</a></div>
-    <div class="fgrp"><h4>Support</h4><a href="#" data-link="subscription">Manage Subscription</a><a href="#" data-link="faq">FAQ</a><a href="#guide">Contact Us</a></div>
-    <div class="fgrp"><h4>Company</h4><a href="#" data-link="about">About Us</a><a href="#" data-link="terms">Terms of Service</a><a href="#" data-link="privacy">Privacy Policy</a></div>
-    <p id="company"></p>
-  </div>
-</footer>
-
-<div class="stk-modal" id="stkModal" role="dialog" aria-modal="true" aria-labelledby="stkTitle">
+<div class="stk-modal" id="stkModal" role="dialog" aria-modal="true">
   <div class="stk-box" id="stkBox"></div>
 </div>
 
 <script>
-/* ===== CONFIG ===== */
-const CONFIG = {
-  brand: ["MaplePath", "Canada"],
-  endpoint: "/api/guide",
-  guideFee: 250,
-  company: "© 2026 MaplePath Canada Ltd. 150 King Street West, Toronto, ON M5H 1J9, Canada.",
-  links: {points:"#", faq:"#", news:"#", login:"#", subscription:"#", about:"#", terms:"#", privacy:"#"},
-  videos: [
-    {title:"What is the National Occupation Classification?", desc:"Why your occupation match matters before you rely on a skilled pathway.", url:"https://www.youtube.com/embed/2QbP1MdJ1xM"},
-    {title:"How category-based Express Entry rounds work", desc:"How category rounds can affect which skilled profiles get attention.", url:"https://www.youtube.com/embed/W1Y5YlvOx4c"},
-    {title:"How to apply for Express Entry", desc:"Where the official application happens after you prepare your profile.", url:"https://www.youtube.com/embed/HMbXO8zJdLY"}
-  ],
-  reviews: [
-    {name:"Aisha M.", when:"6 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/women/44.jpg", text:"The assessment made my Canada pathway much clearer. I could finally see which parts of my profile needed work before spending money on advice."},
-    {name:"Daniel K.", when:"6 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/men/32.jpg", text:"I was confused between Express Entry and provincial options. This gave me a simple starting point and showed what to check first."},
-    {name:"Sofia R.", when:"5 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/women/68.jpg", text:"The result came through quickly and helped me understand why my language score and documents mattered so much."},
-    {name:"Rahul P.", when:"5 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/men/75.jpg", text:"I wanted to know if my occupation could actually fit a Canada pathway. The score breakdown made the next steps easier to follow."},
-    {name:"Maria L.", when:"4 months ago", stars:5, avatar:"https://randomuser.me/api/portraits/women/23.jpg", text:"A clear breakdown I could actually follow. Worth the few minutes before committing to anything bigger."}
-  ],
-  plans: [
-    {name:"Consultation", price:"$49", cta:"Book here", url:"#",
-     items:["One-on-one online meeting about your options","Review of your assessment result","Personalised step-by-step plan"]},
-    {name:"Full support", price:"$499", cta:"Enquire here", url:"#",
-     items:["Dedicated account manager","Document checks","Language-test preparation guidance","Priority email support"]}
-  ]
-};
-
 const $=id=>document.getElementById(id);
-$("brandA").innerHTML=$("brandB").innerHTML=CONFIG.brand[0]+" <span>"+CONFIG.brand[1]+"</span>";
-$("logoMark").textContent=CONFIG.brand[0][0];
-$("disc").textContent=CONFIG.brand.join(" ")+" is a private information service and is not associated with the Government of Canada. We do not sell or provide visas. Information is general in nature and should not be taken as legal advice.";
-$("company").textContent=CONFIG.company;
-
-document.querySelectorAll("[data-p]").forEach(el=>{const[i,k]=el.dataset.p.split(".");el.textContent=CONFIG.plans[i][k]});
-document.querySelectorAll("[data-href]").forEach(el=>{const[i,k]=el.dataset.href.split(".");el.href=CONFIG.plans[i][k]});
-document.querySelectorAll("[data-l]").forEach(ul=>ul.innerHTML=CONFIG.plans[ul.dataset.l].items.map(t=>"<li>"+t+"</li>").join(""));
-
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-document.querySelectorAll("[data-link]").forEach(a=>a.href=CONFIG.links[a.dataset.link]||"#");
-
-/* ===== Videos ===== */
-$("vlist").innerHTML=CONFIG.videos.map((v,i)=>
-  '<div class="vid"><button class="vthumb" data-v="'+i+'" aria-label="Play: '+esc(v.title)+'"'+(v.url?"":" disabled")+'></button>'+
-  '<div class="vtxt"><b>'+esc(v.title)+'</b><span>'+esc(v.desc)+'</span></div></div>').join("");
-$("vlist").addEventListener("click",e=>{
-  const b=e.target.closest(".vthumb");if(!b||b.disabled)return;
-  const u=CONFIG.videos[b.dataset.v].url;if(!/^https:\/\//.test(u))return;
-  const f=document.createElement("iframe");f.src=u+(u.includes("?")?"&":"?")+"autoplay=1";f.allow="autoplay; encrypted-media; fullscreen";f.allowFullscreen=true;f.title="Video";
-  b.replaceWith(f);
-});
-
-/* ===== Reviews ===== */
-if(CONFIG.reviews.length){
-  $("rlist").innerHTML=CONFIG.reviews.map(r=>`
-    <div class="card rev">
-      <div class="who">
-        <img class="av" src="${esc(r.avatar)}" alt="${esc(r.name)}" loading="lazy" onerror="this.style.background='#eef1f8';this.removeAttribute('src')">
-        <div><b>${esc(r.name)}</b><small>${esc(r.when||"")}</small></div>
-      </div>
-      <div class="st" aria-label="${r.stars||5} out of 5">${"★".repeat(r.stars||5)}</div>
-      <p>“${esc(r.text)}”</p>
-    </div>
-  `).join("");
-} else { $("reviews").hidden=true; }
-
-/* ===== Menu ===== */
-$("burger").onclick=()=>{const o=$("menu").classList.toggle("open");$("burger").setAttribute("aria-expanded",o)};
-document.querySelectorAll("#menu a").forEach(a=>a.addEventListener("click",()=>$("menu").classList.remove("open")));
+const CONFIG = { guideFee: 250 };
 
 /* ===== STK flow ===== */
 const stkModal = $("stkModal");
@@ -350,10 +217,9 @@ function showConfirm(name, phone, fee, occupation){
   stkBox.innerHTML = `
     <div class="stk-ico">💳</div>
     <h3 id="stkTitle">Confirm your guide request</h3>
-    <p>Hi ${esc(name)}, a small fee unlocks the full 6-step migration guide, sent straight to your email.</p>
+    <p>Hi ${esc(name)}, a small fee unlocks the full 6-step migration guide.</p>
     <div class="stk-amount">
-      <div class="row"><span>Guide</span><span>How to migrate to Canada in 6 steps</span></div>
-      <div class="row"><span>Delivery</span><span>Email (PDF)</span></div>
+      <div class="row"><span>Guide</span><span>How to migrate to Canada</span></div>
       <div class="row"><span>Occupation</span><span>${esc(occupation)}</span></div>
       <div class="row"><span>M-Pesa number</span><span>${esc(display)}</span></div>
       <div class="row"><span>Amount</span><span>KSh ${fee.toLocaleString()}</span></div>
@@ -382,18 +248,20 @@ function showSuccess(name, email){
   stkBox.innerHTML = `
     <div class="stk-ok-ico">✓</div>
     <h3 id="stkTitle">Guide on its way</h3>
-    <p>Thanks ${esc(name)} — we sent the 6-step guide to <b>${esc(email)}</b>. Check your spam folder if it doesn't arrive in 2 minutes.</p>
+    <p>Thanks ${esc(name)} — we sent the guide to <b>${esc(email)}</b>.</p>
     <button class="stk-btn primary" id="doneBtn">Done</button>
   `;
   stkModal.classList.add('open');
   $("doneBtn").onclick = closeModal;
 }
 
-function showFail(reason, name, phone, fee, occupation){
+function showFail(title, message, rawError, name, phone, fee, occupation){
+  const errDetails = rawError ? `<div class="err-box">${esc(JSON.stringify(rawError, null, 2))}</div>` : '';
   stkBox.innerHTML = `
     <div class="stk-fail-ico">✕</div>
-    <h3 id="stkTitle">Payment not completed</h3>
-    <p>${esc(reason || 'The prompt was declined or cancelled.')}</p>
+    <h3 id="stkTitle">${esc(title)}</h3>
+    <p>${esc(message)}</p>
+    ${errDetails}
     <button class="stk-btn primary" id="retryBtn">Try again</button>
     <button class="stk-btn ghost" id="closeFailBtn">Close</button>
   `;
@@ -407,7 +275,7 @@ async function pollStatus(transactionId, signal){
   while (Date.now() - start < 90000) {
     if(signal?.aborted) return 'cancelled';
     try {
-      const r = await fetch('/api/status?transactionId=' + encodeURIComponent(transactionId));
+      const r = await fetch('/api/pay?transactionId=' + encodeURIComponent(transactionId));
       const d = await r.json();
       if (d.status === 'COMPLETED' || d.status === 'SUCCESS') return 'success';
       if (d.status === 'FAILED' || d.status === 'CANCELLED' || d.status === 'REJECTED') return 'failed';
@@ -423,48 +291,41 @@ async function startStk(name, phone, fee, occupation){
 
   try {
     const reference = 'GUIDE-' + Date.now();
-    const r = await fetch('/api/stk-push', {
+    const r = await fetch('/api/pay', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        phone,
-        amount: fee,
-        reference,
-        description: 'MaplePath Canada – Migration Guide'
-      })
+      body: JSON.stringify({ phone, amount: fee, reference, description: 'MaplePath Canada' })
     });
+    
     const data = await r.json();
-    if (!r.ok || !data.transactionId) throw new Error(data.error || 'STK push failed');
+    
+    if (!r.ok || !data.transactionId) {
+      // Show the EXACT error from the backend/Paylor on the screen
+      return showFail(
+        'STK Push Failed', 
+        data.error || 'The server rejected the request.', 
+        data.paylor_details || data, 
+        name, phone, fee, occupation
+      );
+    }
 
+    // Successfully sent, now poll
     const result = await pollStatus(data.transactionId, abortController.signal);
 
     if (result === 'success') {
-      try {
-        await fetch(CONFIG.endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            type: 'paid_guide',
-            name, phone,
-            email: $("gemail").value.trim(),
-            occupation: occupation,
-            transactionId: data.transactionId,
-            reference, amount: fee,
-            submittedAt: new Date().toISOString()
-          })
-        });
-      } catch(_) {}
+      try { await fetch('/api/guide', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, email: $("gemail").value.trim(), occupation, amount: fee }) }); } catch(_) {}
       showSuccess(name, $("gemail").value.trim());
       $("gform").reset();
     } else if (result === 'cancelled') {
-      /* user closed modal */
+      // user closed modal
     } else if (result === 'failed') {
-      showFail('The prompt was declined or cancelled.', name, phone, fee, occupation);
+      showFail('Payment Declined', 'You cancelled the prompt or entered the wrong PIN.', null, name, phone, fee, occupation);
     } else {
-      showFail('We did not receive confirmation in time. If you were charged, contact us with reference ' + reference + '.', name, phone, fee, occupation);
+      showFail('Timeout', 'We did not receive confirmation in time.', null, name, phone, fee, occupation);
     }
+
   } catch (err) {
-    showFail(err.message || 'Network error.', name, phone, fee, occupation);
+    showFail('Network Error', err.message, err, name, phone, fee, occupation);
   } finally {
     abortController = null;
   }
