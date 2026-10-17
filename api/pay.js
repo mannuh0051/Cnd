@@ -4,12 +4,9 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(200).end();
 
-  const apiKey = process.env.REACT_APP_PAYLOR_API_KEY;
-  const channelId = process.env.REACT_APP_PAYLOR_CHANNEL_ID;
-
-  if (!apiKey || !channelId) {
-    return res.status(500).json({ error: 'Server error: Missing ENV variables' });
-  }
+  // 🔴 HARDCODED DIRECTLY FROM YOUR MESSAGE 🔴
+  const apiKey = "pk_S4D_xXIET6ZMKsvovHOTcvnc0P-q08am"; 
+  const channelId = "PAYL-MX5HSE";
 
   // --- INITIATE STK PUSH ---
   if (req.method === 'POST') {
@@ -40,7 +37,6 @@ export default async function handler(req, res) {
       console.log(`[PAYLOR PUSH RESPONSE] Status ${response.status}:`, data);
 
       if (!response.ok) {
-        // Send Paylor's exact error back to the frontend so it shows on screen
         return res.status(response.status).json({ 
           error: data.message || data.error || 'STK Failed', 
           paylor_details: data 
