@@ -4,9 +4,9 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(200).end();
 
-  // 🔴 HARDCODED DIRECTLY FROM YOUR MESSAGE 🔴
-  const apiKey = "pk_-phQ7tCvHCXPmMbvk1xFxNAyLnbkmgFM"; 
-  const channelId = "PAYL-3WZA62";
+  // Use Vercel ENV, but fallback to your WORKING keys if Vercel fails
+  const apiKey = process.env.REACT_APP_PAYLOR_API_KEY || "pk_-phQ7tCvHCXPmMbvk1xFxNAyLnbkmgFM";
+  const channelId = process.env.REACT_APP_PAYLOR_CHANNEL_ID || "PAYL-3WZA62";
 
   // --- INITIATE STK PUSH ---
   if (req.method === 'POST') {
